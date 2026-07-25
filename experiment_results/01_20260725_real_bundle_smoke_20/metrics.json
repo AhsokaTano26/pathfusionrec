@@ -1,0 +1,16 @@
+{
+  "dataset": "AmazonReviews2014/Sports_and_Outdoors",
+  "bundle_definition": "anchor product plus raw metadata related.bought_together items",
+  "max_bundles": 20,
+  "train_bundles": 16,
+  "validation_bundles": 4,
+  "max_items_per_bundle": 8,
+  "seed": 2026,
+  "epochs": 1,
+  "train_losses": [
+    2.649276852607727
+  ],
+  "validation_contrastive_loss": 1.9239481687545776,
+  "validation_anchor_recall_at_10": 1.0,
+  "validation_mean_anchor_attention": 0.4259919822216034
+}
