@@ -1,0 +1,72 @@
+{
+  "protocol": {
+    "name": "sports_protocol",
+    "version": 1,
+    "dataset": "AmazonReviews2014",
+    "category": "Sports_and_Outdoors",
+    "split": "leave_one_out",
+    "max_history_length": 20,
+    "bundle_definition": "subject plus Amazon related.bought_together",
+    "max_bundle_length": 8,
+    "candidate_catalog": "all mapped items with metadata"
+  },
+  "counts": {
+    "users": 35598,
+    "eligible_users_length_at_least_3": 35598,
+    "skipped_users_length_below_3": 0,
+    "items": 18357,
+    "interactions": 296337,
+    "eligible_user_interactions": 296337,
+    "training_interactions": 225141,
+    "metadata_items": 18357,
+    "candidate_items": 18357,
+    "items_without_metadata": 0,
+    "duplicate_metadata_records_ignored": 0,
+    "train_samples": 189543,
+    "validation_samples": 35598,
+    "test_samples": 35598,
+    "validation_targets_without_metadata": 0,
+    "test_targets_without_metadata": 0
+  },
+  "subsets": {
+    "all": 35598,
+    "cold_start_target": 317,
+    "long_tail_target": 9962,
+    "sparse_user": 22639
+  },
+  "bundles": {
+    "count": 18357,
+    "singleton_count": 7198,
+    "singleton_ratio": 0.392112,
+    "length_mean": 1.825244,
+    "length_percentiles_linear": {
+      "p0": 1.0,
+      "p25": 1.0,
+      "p50": 2.0,
+      "p75": 2.0,
+      "p90": 3.0,
+      "p95": 3.0,
+      "p99": 3.0,
+      "p100": 4.0
+    }
+  },
+  "sources": {
+    "reviews_url": "https://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Sports_and_Outdoors_5.json.gz",
+    "metadata_url": "https://snap.stanford.edu/data/amazon/productGraph/categoryFiles/meta_Sports_and_Outdoors.json.gz",
+    "all_item_seqs_sha256": "5902717812a15e8f1890229a611bc375d01d781ea38af19bf939e161bfd236e3",
+    "id_mapping_sha256": "04064cbb2c2b30e8ba41f18fdd5813e01935ca32eedaf8c91d5fe3fe41b0af12",
+    "metadata_gzip_sha256": "677108a0fe0f47cce08885a348879a5a89dd69e75fbc5d66410ae436750df086"
+  },
+  "artifact_sha256": {
+    "split.json": "5a4e8523dc374f42d394cd64dc1df745002d7f278ba7f85ad5c7e6b25fe0f50a",
+    "bundles.json": "48f2eceedec38e7d25fa7fa021101c21c6c7f15ec616d20400658465038788a2",
+    "subset_masks.json": "602456e6657457e46100a7ab259eeb3889e5aeb54de9d0e4c5e5f43bf09eccf3"
+  },
+  "validation": {
+    "source_mapping_round_trip": true,
+    "leave_one_out_targets_and_histories": true,
+    "history_length_at_most_20": true,
+    "bundle_subject_first_unique_and_at_most_8": true,
+    "subset_masks_align_with_test_samples": true
+  }
+}
