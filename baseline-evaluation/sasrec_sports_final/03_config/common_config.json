@@ -1,0 +1,25 @@
+{
+  "method": "SASRec-PyTorch (pmixer)",
+  "dataset": "Amazon Reviews 2014 Sports and Outdoors",
+  "split": "leave-last-out",
+  "evaluation": "full-item ranking",
+  "seeds": [2026, 2027, 2028],
+  "hidden_units": 50,
+  "num_blocks": 2,
+  "num_heads": 1,
+  "maxlen": 200,
+  "dropout_rate": 0.2,
+  "batch_size": 128,
+  "eval_batch_size": 256,
+  "learning_rate": 0.001,
+  "l2_emb": 0.0,
+  "norm_first": false,
+  "max_epochs": 1000,
+  "eval_every": 1,
+  "patience": 20,
+  "min_delta": 0.0,
+  "num_workers": 3,
+  "device": "cuda",
+  "model_selection_metric": "validation NDCG@10"
+}
+

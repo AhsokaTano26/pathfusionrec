@@ -1,0 +1,75 @@
+nohup: ignoring input
+=== 数据统计 ===
+dataset: sports
+user_count: 35598
+item_count: 18357
+train_interactions: 225141
+valid_interactions: 35598
+test_interactions: 35598
+total_interactions: 296337
+average_train_sequence_length: 6.3245407045339626
+epoch=1 loss=1.242360 train=5.00s val_NDCG@5=0.005240 val_HR@5=0.007922 val_NDCG@10=0.006797 val_HR@10=0.012866 best_epoch=1 patience=0/20
+epoch=2 loss=1.164319 train=4.75s val_NDCG@5=0.005001 val_HR@5=0.008062 val_NDCG@10=0.007187 val_HR@10=0.014860 best_epoch=2 patience=0/20
+epoch=3 loss=1.097924 train=4.28s val_NDCG@5=0.006557 val_HR@5=0.010787 val_NDCG@10=0.009148 val_HR@10=0.018934 best_epoch=3 patience=0/20
+epoch=4 loss=1.016176 train=4.67s val_NDCG@5=0.008317 val_HR@5=0.012585 val_NDCG@10=0.011464 val_HR@10=0.022389 best_epoch=4 patience=0/20
+epoch=5 loss=0.952670 train=4.63s val_NDCG@5=0.010013 val_HR@5=0.015226 val_NDCG@10=0.013077 val_HR@10=0.024777 best_epoch=5 patience=0/20
+epoch=6 loss=0.902427 train=4.72s val_NDCG@5=0.011142 val_HR@5=0.017192 val_NDCG@10=0.014381 val_HR@10=0.027249 best_epoch=6 patience=0/20
+epoch=7 loss=0.850648 train=4.57s val_NDCG@5=0.011098 val_HR@5=0.017417 val_NDCG@10=0.014452 val_HR@10=0.027923 best_epoch=7 patience=0/20
+epoch=8 loss=0.795871 train=4.59s val_NDCG@5=0.011551 val_HR@5=0.017950 val_NDCG@10=0.015116 val_HR@10=0.029047 best_epoch=8 patience=0/20
+epoch=9 loss=0.756086 train=4.40s val_NDCG@5=0.011255 val_HR@5=0.017922 val_NDCG@10=0.015035 val_HR@10=0.029693 best_epoch=8 patience=1/20
+epoch=10 loss=0.712790 train=4.62s val_NDCG@5=0.011525 val_HR@5=0.018456 val_NDCG@10=0.015295 val_HR@10=0.030142 best_epoch=10 patience=0/20
+epoch=11 loss=0.672326 train=4.68s val_NDCG@5=0.011714 val_HR@5=0.018849 val_NDCG@10=0.015588 val_HR@10=0.030873 best_epoch=11 patience=0/20
+epoch=12 loss=0.640529 train=4.62s val_NDCG@5=0.011715 val_HR@5=0.018372 val_NDCG@10=0.015877 val_HR@10=0.031350 best_epoch=12 patience=0/20
+epoch=13 loss=0.607802 train=4.58s val_NDCG@5=0.011047 val_HR@5=0.017164 val_NDCG@10=0.015683 val_HR@10=0.031659 best_epoch=12 patience=1/20
+epoch=14 loss=0.581904 train=4.64s val_NDCG@5=0.012047 val_HR@5=0.018877 val_NDCG@10=0.015844 val_HR@10=0.030760 best_epoch=12 patience=2/20
+epoch=15 loss=0.549777 train=4.55s val_NDCG@5=0.011518 val_HR@5=0.017782 val_NDCG@10=0.015660 val_HR@10=0.030760 best_epoch=12 patience=3/20
+epoch=16 loss=0.531447 train=4.61s val_NDCG@5=0.012423 val_HR@5=0.019692 val_NDCG@10=0.016309 val_HR@10=0.031884 best_epoch=16 patience=0/20
+epoch=17 loss=0.509877 train=4.50s val_NDCG@5=0.012570 val_HR@5=0.019467 val_NDCG@10=0.016671 val_HR@10=0.032277 best_epoch=17 patience=0/20
+epoch=18 loss=0.493965 train=4.64s val_NDCG@5=0.012644 val_HR@5=0.019917 val_NDCG@10=0.016758 val_HR@10=0.032727 best_epoch=18 patience=0/20
+epoch=19 loss=0.476327 train=4.65s val_NDCG@5=0.012421 val_HR@5=0.019102 val_NDCG@10=0.016475 val_HR@10=0.031631 best_epoch=18 patience=1/20
+epoch=20 loss=0.460179 train=4.77s val_NDCG@5=0.012498 val_HR@5=0.019495 val_NDCG@10=0.016300 val_HR@10=0.031266 best_epoch=18 patience=2/20
+epoch=21 loss=0.450169 train=4.62s val_NDCG@5=0.012146 val_HR@5=0.018906 val_NDCG@10=0.016157 val_HR@10=0.031434 best_epoch=18 patience=3/20
+epoch=22 loss=0.435027 train=4.46s val_NDCG@5=0.012680 val_HR@5=0.020113 val_NDCG@10=0.016881 val_HR@10=0.033232 best_epoch=22 patience=0/20
+epoch=23 loss=0.424709 train=4.79s val_NDCG@5=0.012455 val_HR@5=0.019215 val_NDCG@10=0.016498 val_HR@10=0.031800 best_epoch=22 patience=1/20
+epoch=24 loss=0.415307 train=4.68s val_NDCG@5=0.012501 val_HR@5=0.018934 val_NDCG@10=0.016385 val_HR@10=0.031097 best_epoch=22 patience=2/20
+epoch=25 loss=0.408394 train=4.68s val_NDCG@5=0.012710 val_HR@5=0.019524 val_NDCG@10=0.016715 val_HR@10=0.031996 best_epoch=22 patience=3/20
+epoch=26 loss=0.396659 train=3.99s val_NDCG@5=0.012354 val_HR@5=0.019243 val_NDCG@10=0.016374 val_HR@10=0.031743 best_epoch=22 patience=4/20
+epoch=27 loss=0.388109 train=4.69s val_NDCG@5=0.012593 val_HR@5=0.019720 val_NDCG@10=0.016149 val_HR@10=0.030873 best_epoch=22 patience=5/20
+epoch=28 loss=0.383906 train=4.69s val_NDCG@5=0.013270 val_HR@5=0.020113 val_NDCG@10=0.016991 val_HR@10=0.031687 best_epoch=28 patience=0/20
+epoch=29 loss=0.376911 train=4.59s val_NDCG@5=0.012682 val_HR@5=0.019748 val_NDCG@10=0.016655 val_HR@10=0.032109 best_epoch=28 patience=1/20
+epoch=30 loss=0.368886 train=3.81s val_NDCG@5=0.011843 val_HR@5=0.018316 val_NDCG@10=0.015810 val_HR@10=0.030676 best_epoch=28 patience=2/20
+epoch=31 loss=0.366024 train=4.58s val_NDCG@5=0.012309 val_HR@5=0.019355 val_NDCG@10=0.016253 val_HR@10=0.031631 best_epoch=28 patience=3/20
+epoch=32 loss=0.360013 train=4.59s val_NDCG@5=0.012458 val_HR@5=0.019327 val_NDCG@10=0.016396 val_HR@10=0.031659 best_epoch=28 patience=4/20
+epoch=33 loss=0.355323 train=4.63s val_NDCG@5=0.012678 val_HR@5=0.019861 val_NDCG@10=0.016321 val_HR@10=0.031153 best_epoch=28 patience=5/20
+epoch=34 loss=0.353036 train=4.70s val_NDCG@5=0.012335 val_HR@5=0.019383 val_NDCG@10=0.016078 val_HR@10=0.031013 best_epoch=28 patience=6/20
+epoch=35 loss=0.347478 train=4.67s val_NDCG@5=0.012526 val_HR@5=0.019355 val_NDCG@10=0.016146 val_HR@10=0.030620 best_epoch=28 patience=7/20
+epoch=36 loss=0.342070 train=4.64s val_NDCG@5=0.012451 val_HR@5=0.018934 val_NDCG@10=0.016340 val_HR@10=0.030985 best_epoch=28 patience=8/20
+epoch=37 loss=0.335189 train=4.65s val_NDCG@5=0.012437 val_HR@5=0.018934 val_NDCG@10=0.016221 val_HR@10=0.030732 best_epoch=28 patience=9/20
+epoch=38 loss=0.336168 train=4.90s val_NDCG@5=0.012880 val_HR@5=0.019664 val_NDCG@10=0.016486 val_HR@10=0.030957 best_epoch=28 patience=10/20
+epoch=39 loss=0.332867 train=4.35s val_NDCG@5=0.012295 val_HR@5=0.018400 val_NDCG@10=0.015985 val_HR@10=0.029889 best_epoch=28 patience=11/20
+epoch=40 loss=0.330604 train=4.61s val_NDCG@5=0.012403 val_HR@5=0.018877 val_NDCG@10=0.015965 val_HR@10=0.030002 best_epoch=28 patience=12/20
+epoch=41 loss=0.325331 train=4.80s val_NDCG@5=0.012533 val_HR@5=0.019186 val_NDCG@10=0.015987 val_HR@10=0.029889 best_epoch=28 patience=13/20
+epoch=42 loss=0.323447 train=4.71s val_NDCG@5=0.012368 val_HR@5=0.019299 val_NDCG@10=0.016163 val_HR@10=0.031125 best_epoch=28 patience=14/20
+epoch=43 loss=0.320144 train=4.85s val_NDCG@5=0.011754 val_HR@5=0.018484 val_NDCG@10=0.015672 val_HR@10=0.030648 best_epoch=28 patience=15/20
+epoch=44 loss=0.320401 train=4.80s val_NDCG@5=0.012621 val_HR@5=0.019552 val_NDCG@10=0.016300 val_HR@10=0.031041 best_epoch=28 patience=16/20
+epoch=45 loss=0.316814 train=4.52s val_NDCG@5=0.012519 val_HR@5=0.019467 val_NDCG@10=0.016404 val_HR@10=0.031519 best_epoch=28 patience=17/20
+epoch=46 loss=0.310355 train=4.16s val_NDCG@5=0.011986 val_HR@5=0.018540 val_NDCG@10=0.015598 val_HR@10=0.029721 best_epoch=28 patience=18/20
+epoch=47 loss=0.317396 train=4.57s val_NDCG@5=0.012870 val_HR@5=0.019439 val_NDCG@10=0.016831 val_HR@10=0.031800 best_epoch=28 patience=19/20
+epoch=48 loss=0.310478 train=4.65s val_NDCG@5=0.012605 val_HR@5=0.019804 val_NDCG@10=0.016683 val_HR@10=0.032446 best_epoch=28 patience=20/20
+验证集连续20次未提升，在epoch=48早停。
+加载验证集最佳模型：epoch=28
+
+=== 最终测试结果 ===
+seed: 2028
+best_epoch: 28
+NDCG@5: 0.009906
+HR@5: 0.014860
+Recall@5: 0.014860
+NDCG@10: 0.013134
+HR@10: 0.024945
+Recall@10: 0.024945
+纯训练时间: 220.86秒
+训练及验证选模总时间: 322.47秒
+测试排序延迟: 0.052558毫秒/用户
+结果目录: /root/autodl-tmp/sasrec_sports/runs/full_seed2028
+Done

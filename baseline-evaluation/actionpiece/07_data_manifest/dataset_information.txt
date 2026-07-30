@@ -1,0 +1,25 @@
+数据集信息
+==========
+
+数据集：Amazon Reviews 2014 / Sports and Outdoors
+用户序列数：35,598
+物品数：18,357
+交互数：260,739
+平均序列长度：8.32
+划分方式：leave-last-out
+评估方式：全物品生成式评估
+
+原始文件：
+- reviews_Sports_and_Outdoors_5.json.gz
+- meta_Sports_and_Outdoors.json.gz
+
+主要处理文件：
+- all_item_seqs.json
+- id_mapping.json
+- metadata.sentence.json
+- sentence-t5-base.sent_emb
+- sentence-t5-base.sem_ids
+- item.sentence.feat
+- actionpiece.json
+
+本交付包仅保存文件清单和 SHA256，不重复打包原始数据与处理缓存。

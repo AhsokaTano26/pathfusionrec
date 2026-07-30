@@ -1,0 +1,1 @@
+fd140fc60dd8cef289a82a06020023e769dfb534782a43d90f6c535386937e02  /root/autodl-tmp/actionpiece_records/checkpoints/sports_full_seed2026_eval128_best_epoch20.pth

@@ -1,0 +1,1 @@
+e9f9c251f1fe852b8864b9c3b22ef43a6f076d06b063f04ad9d4862becaad9ec  /root/autodl-tmp/actionpiece_records/checkpoints/sports_full_seed2024_eval128_best_epoch10.pth

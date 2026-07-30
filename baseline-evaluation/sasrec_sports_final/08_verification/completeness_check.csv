@@ -1,0 +1,23 @@
+category,required_item,status,evidence
+代码,SASRec模型代码,complete,02_code/original_pmixer/model.py
+代码,Sports训练入口,complete,02_code/sports_experiment/main_sports.py
+代码,全物品评估脚本,complete,02_code/sports_experiment/fullsort_eval.py
+配置,共同配置,complete,03_config/common_config.json
+配置,三种子原始参数,complete,03_config/seed_2026_args.json; seed_2027_args.json; seed_2028_args.json
+结果,三种子训练历史,complete,05_runs/seed_*/training_history.jsonl
+结果,三种子完整日志,complete,05_runs/seed_*/training.log
+结果,三种子最佳验证记录,complete,05_runs/seed_*/best_validation.json
+结果,三种子正式测试结果,complete,05_runs/seed_*/test_results.json
+模型,三种子最佳checkpoint,complete,05_runs/seed_*/best_model.pth
+汇总,逐种子结果表,complete,06_results/sasrec_per_seed_results.csv
+汇总,均值与样本标准差,complete,06_results/sasrec_summary_results.csv
+环境,GPU与软件环境,complete,07_environment/
+数据,处理后数据与SHA,complete,04_data_provenance/
+数据,原始数据文件名与SHA,complete,04_data_provenance/raw_data_manifest.csv
+数据,实验时完整预处理脚本,missing,已如实记录且不影响现有训练结果
+Git,基础commit,complete,02_code/code_provenance/base_git_commit.txt
+Git,新增实验代码当时已提交,partial,实验时未跟踪；代码内容已单独固化
+校验,全包SHA256清单,complete,DELIVERY_SHA256SUMS.txt
+校验,逐种子SHA256清单,complete,05_runs/seed_*/SHA256SUMS.txt
+checkpoint,本次环境重新反序列化,not_run,见checkpoint_verification_status.md
+

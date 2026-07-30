@@ -1,0 +1,17 @@
+output_field,source_file,source_path_or_rule
+seed,05_runs/seed_XXXX/test_results.json,seed
+best_epoch,05_runs/seed_XXXX/test_results.json,best_epoch
+stopped_epoch,05_runs/seed_XXXX/training_history.jsonl,最后一行的epoch
+ndcg_at_5,05_runs/seed_XXXX/test_results.json,test_metrics.NDCG@5
+recall_hr_at_5,05_runs/seed_XXXX/test_results.json,test_metrics.Recall@5（等于HR@5）
+ndcg_at_10,05_runs/seed_XXXX/test_results.json,test_metrics.NDCG@10
+recall_hr_at_10,05_runs/seed_XXXX/test_results.json,test_metrics.Recall@10（等于HR@10）
+selection_wall_seconds,05_runs/seed_XXXX/test_results.json,selection_wall_seconds
+pure_training_seconds,05_runs/seed_XXXX/test_results.json,pure_training_seconds
+test_wall_seconds,05_runs/seed_XXXX/test_results.json,test_metrics.wall_seconds
+wall_ms_per_user,05_runs/seed_XXXX/test_results.json,test_metrics.wall_ms_per_user
+ranking_ms_per_user,05_runs/seed_XXXX/test_results.json,test_metrics.ranking_ms_per_user
+evaluated_users,05_runs/seed_XXXX/test_results.json,test_metrics.evaluated_users
+catalog_item_count,05_runs/seed_XXXX/test_results.json,test_metrics.candidate_item_count
+gpu,05_runs/seed_XXXX/test_results.json,environment.gpu
+

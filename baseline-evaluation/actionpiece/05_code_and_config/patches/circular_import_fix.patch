@@ -1,0 +1,48 @@
+diff --git a/genrec/utils.py b/genrec/utils.py
+index fa95f69..d550840 100644
+--- a/genrec/utils.py
++++ b/genrec/utils.py
+@@ -14,6 +14,7 @@
+ # ==============================================================================
+ 
+ """Utils for GenRec."""
++from __future__ import annotations
+ 
+ import datetime
+ import hashlib
+@@ -28,9 +29,6 @@ from typing import Any, Optional, Union
+ 
+ import accelerate.utils
+ import datasets.utils.logging
+-from genrec.dataset import AbstractDataset
+-from genrec.model import AbstractModel
+-from genrec.trainer import Trainer
+ import numpy as np
+ import requests
+ import torch
+@@ -200,7 +198,7 @@ def get_model(model_name: Union[str, AbstractModel]) -> AbstractModel:
+   Raises:
+       ValueError: If the model name is not found.
+   """
+-  if isinstance(model_name, AbstractModel):
++  if not isinstance(model_name, str):
+     return model_name
+ 
+   try:
+@@ -223,7 +221,7 @@ def get_dataset(dataset_name: Union[str, AbstractDataset]) -> AbstractDataset:
+   Raises:
+       ValueError: If the dataset name is not found.
+   """
+-  if isinstance(dataset_name, AbstractDataset):
++  if not isinstance(dataset_name, str):
+     return dataset_name
+ 
+   try:
+@@ -253,6 +251,7 @@ def get_trainer(model_name: Union[str, AbstractModel]):
+     )
+     return trainer_class
+ 
++  from genrec.trainer import Trainer
+   return Trainer
+ 
+ 

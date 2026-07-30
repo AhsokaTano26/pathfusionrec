@@ -1,0 +1,5 @@
+seed,best_epoch,stopped_epoch,patience,selection_metric
+2026,21,41,20,validation_NDCG@10
+2027,21,41,20,validation_NDCG@10
+2028,28,48,20,validation_NDCG@10
+
