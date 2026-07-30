@@ -1,0 +1,21 @@
+{
+  "dataset": "sports",
+  "output_dir": "/root/autodl-tmp/sasrec_sports/runs/full_seed2026",
+  "seed": 2026,
+  "batch_size": 128,
+  "eval_batch_size": 256,
+  "lr": 0.001,
+  "maxlen": 200,
+  "hidden_units": 50,
+  "num_blocks": 2,
+  "num_heads": 1,
+  "dropout_rate": 0.2,
+  "l2_emb": 0.0,
+  "norm_first": false,
+  "num_epochs": 1000,
+  "eval_every": 1,
+  "patience": 20,
+  "min_delta": 0.0,
+  "num_workers": 3,
+  "device": "cuda"
+}

@@ -1,0 +1,12 @@
+Original source archive:
+sasrec_sports_pmixer_3seeds_final_delivery.tar.gz
+SHA256: c25d5e87198e4ffb6ba26d8098236d465d6bfbb2d3cd2721eabbfc9918972f1f
+Outer checksum match: PASS
+Original DELIVERY_SHA256SUMS.txt verification: PASS
+
+Reorganized delivery:
+- Original experimental artifacts were copied without editing.
+- New seed-level SHA256SUMS.txt files use paths local to each seed directory.
+- Root DELIVERY_SHA256SUMS.txt uses paths local to the delivery root.
+- Final verification result is produced by 09_scripts/verify_delivery_sha256.sh.
+

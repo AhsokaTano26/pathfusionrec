@@ -1,0 +1,16 @@
+{
+  "dataset": "Amazon Reviews 2014 Sports and Outdoors",
+  "user_count": 35598,
+  "item_count": 18357,
+  "train_interactions": 225141,
+  "validation_interactions": 35598,
+  "test_interactions": 35598,
+  "total_interactions": 296337,
+  "minimum_user_sequence_length": 5,
+  "average_train_sequence_length": 6.3245407045339626,
+  "train_seen_item_count": 18284,
+  "train_unseen_item_count": 73,
+  "validation_targets_unseen_in_train": 118,
+  "test_targets_unseen_in_train": 317
+}
+

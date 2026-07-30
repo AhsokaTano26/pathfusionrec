@@ -1,0 +1,49 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ==============================================================================
+
+# Config for sentence embedding model
+sent_emb_model: sentence-transformers/sentence-t5-base
+sent_emb_batch_size: 512
+sent_emb_dim: 768
+sent_emb_pca: 128 # -1 means no PCA, otherwise PCA dimension
+
+# Config for features
+n_threads: 32
+pq_n_codebooks: 4
+pq_codebook_size: 256
+n_hash_buckets: 128
+
+# Config for the action tokenizer
+actionpiece_vocab_size: 40000
+
+# Config for the model
+n_prob_encode_plus: 0
+num_beams: 50 # Number of beams for beam search
+n_inference_ensemble: 5 # Number of inference ensemble
+train_shuffle: feature # none / feature / token
+
+# Config for the task
+max_item_seq_len: 20
+
+# Config for T5
+num_layers: 4
+num_decoder_layers: 4
+d_model: 128
+d_ff: 1024
+num_heads: 6
+d_kv: 64
+dropout_rate: 0.1
+activation_function: "relu"
+feed_forward_proj: "relu"

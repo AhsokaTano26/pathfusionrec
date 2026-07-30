@@ -1,0 +1,27 @@
+相对于 ActionPiece 官方公开仓库的实际运行修补
+===============================================
+
+1. genrec/models/ActionPiece/tokenizer.py
+   验证阶段由 collate_fn_val 改用 collate_fn_test，使验证输入按
+   n_inference_ensemble=5 生成五路输入，避免预测数量与标签数量不一致。
+
+2. genrec/datasets/AmazonReviews2014/dataset.py
+   - 使用文本模式读取 gzip，并优先 json.loads，必要时回退 ast.literal_eval；
+   - metadata 读取调用修正为 parse_gz；
+   - metadata 遍历修正为 tqdm.tqdm(metadata.items())。
+
+3. genrec/utils.py
+   - 增加延迟类型注解，避免循环导入；
+   - 兼容 Python 3.10 日志等级接口；
+   - get_tokenizer 返回实际 tokenizer 类；
+   - 未提供模型专用 trainer 时回退通用 Trainer；
+   - 调整配置值解析逻辑。
+
+4. 运行环境
+   sentence-transformers/sentence-t5-base 通过镜像下载后在离线模式加载。
+
+这些修补用于解决公开代码与当前数据/运行环境的兼容问题。未修改模型结构、
+训练目标、数据划分、测试集、全物品评估口径或指标定义。
+
+逐行差异以 patches/official_runtime_fixes.patch 和
+patches/final_complete_working_tree.patch 为准。

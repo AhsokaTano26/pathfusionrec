@@ -1,0 +1,4 @@
+file_name,size_bytes,sha256,data_version,direct_role_in_sasrec,included_in_delivery,source_note
+reviews_Sports_and_Outdoors_5.json.gz,68275834,8130a2206c3062db1b4b9d4353efc303b0ebd13f48372559fee26c47a1d7fe51,Amazon Reviews 2014 5-core,形成用户-物品交互序列,no,用户提供的原始数据文件
+meta_Sports_and_Outdoors.json.gz,183143051,677108a0fe0f47cce08885a348879a5a89dd69e75fbc5d66410ae436750df086,Amazon Reviews 2014 metadata,本次SASRec交互基线未发现直接使用证据,no,用户提供的原始数据文件
+

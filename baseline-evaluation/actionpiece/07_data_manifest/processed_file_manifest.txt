@@ -1,0 +1,25 @@
+处理后数据与缓存文件清单
+========================
+
+actionpiece.json
+SHA256 71cfae8c8f17683a76eb13797c3b68da07e8969a67d70e576e4ee42ec8309e94
+
+all_item_seqs.json
+SHA256 0bef9293a1c5cfda35c9338dbc9349febf420e85ed68911db8b6e41d9a6cd038
+
+id_mapping.json
+SHA256 68e6fe2a64ec03371a524530e76f71989c446ac08094ac7df96bf66c563efb99
+
+item.sentence.feat
+SHA256 c4dcd1f3e3899ab59d71a703e5112a2a79ea53bc677726d2376695083650a0e9
+
+metadata.sentence.json
+SHA256 9a3139f1214f04cceca8f7fbc2572bff80463451e8f34ef26077e1901b834611
+
+sentence-t5-base.sem_ids
+SHA256 6447cc8244d2940da43732f71d039ff96fd6c31baac55eccae59fb185a5571b8
+
+sentence-t5-base.sent_emb
+SHA256 d9df5adf7f83ebd369a568b70df85e5b0d346ed25e2d41dd996eb77908386a13
+
+权威校验清单请查看 sports_processed_sha256.txt。

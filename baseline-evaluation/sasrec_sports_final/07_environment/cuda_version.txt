@@ -1,0 +1,3 @@
+PyTorch build CUDA: 12.1 (torch 2.1.2+cu121)
+nvidia-smi driver supported CUDA maximum: 13.0
+

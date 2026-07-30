@@ -1,0 +1,21 @@
+{
+  "best_epoch": 21,
+  "selection_metric": "validation_NDCG@10",
+  "best_validation_metrics": {
+    "split": "valid",
+    "evaluated_users": 35598,
+    "candidate_item_count": 18357,
+    "history_filtering": "train",
+    "wall_seconds": 2.1191695202142,
+    "ranking_seconds": 1.9073195401579142,
+    "wall_ms_per_user": 0.05953057812838362,
+    "ranking_ms_per_user": 0.05357940165621423,
+    "HR@5": 0.0196078431372549,
+    "Recall@5": 0.0196078431372549,
+    "NDCG@5": 0.012364692348490618,
+    "HR@10": 0.03222091128715096,
+    "Recall@10": 0.03222091128715096,
+    "NDCG@10": 0.016408980260257527
+  },
+  "checkpoint": "/root/autodl-tmp/sasrec_sports/runs/full_seed2027/best_model_state_dict.pth"
+}

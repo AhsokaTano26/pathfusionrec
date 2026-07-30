@@ -1,0 +1,32 @@
+ActionPiece Sports 五种子正式运行命令
+=====================================
+
+正式运行通过 run_sports_seed.sh 启动，第二个参数为 eval_batch_size=128：
+
+bash run_sports_seed.sh 2024 128
+bash run_sports_seed.sh 2025 128
+bash run_sports_seed.sh 2026 128
+bash run_sports_seed.sh 2027 128
+bash run_sports_seed.sh 2028 128
+
+脚本内部实际调用：
+
+CUDA_VISIBLE_DEVICES=0 \
+HF_HOME=/root/autodl-tmp/huggingface \
+HF_HUB_OFFLINE=1 \
+TRANSFORMERS_OFFLINE=1 \
+python main.py \
+  --category=Sports_and_Outdoors \
+  --rand_seed=<SEED> \
+  --weight_decay=0.15 \
+  --lr=0.005 \
+  --n_hash_buckets=128 \
+  --epochs=200 \
+  --eval_batch_size=128 \
+  --run_id=sports_full_seed<SEED>_eval128
+
+训练后汇总：
+
+python summarize_five_seeds.py
+
+完整环境变量、GPU 监控和元数据记录逻辑请查看 run_sports_seed.sh。
