@@ -1,0 +1,7 @@
+platform: Linux-4.19.90-2107.6.0.0192.8.oe1.bclinux.x86_64-x86_64-with-glibc2.35
+torch: 2.1.2+cu121
+torch_cuda: 12.1
+cuda_available: True
+numpy: 1.25.2
+gpu: NVIDIA A800 80GB PCIe
+faiss: 1.8.0

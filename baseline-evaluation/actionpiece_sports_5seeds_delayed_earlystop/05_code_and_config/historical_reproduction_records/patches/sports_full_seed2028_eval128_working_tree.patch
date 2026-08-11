@@ -1,0 +1,156 @@
+diff --git a/genrec/datasets/AmazonReviews2014/dataset.py b/genrec/datasets/AmazonReviews2014/dataset.py
+index 03e0933..e7e3d04 100644
+--- a/genrec/datasets/AmazonReviews2014/dataset.py
++++ b/genrec/datasets/AmazonReviews2014/dataset.py
+@@ -16,6 +16,7 @@
+ """Dataset for Amazon Reviews 2014."""
+ 
+ import collections
++import ast
+ import gzip
+ import json
+ import os
+@@ -78,10 +79,12 @@ def parse_gz(path: str):
+   Yields:
+       object: Each line of the gzipped file, parsed as a dict.
+   """
+-  with gzip.open(path, 'r') as g:
+-    for l in g:
+-      l = l.replace(b'true', b'True').replace(b'false', b'False')
+-      yield json.loads(l)
++  with gzip.open(path, 'rt', encoding='utf-8') as g:
++    for line in g:
++      try:
++        yield json.loads(line)
++      except json.JSONDecodeError:
++        yield ast.literal_eval(line)
+ 
+ 
+ def get_item_seqs(
+@@ -274,7 +277,7 @@ class AmazonReviews2014(AbstractDataset):
+     self.log('[DATASET] Loading metadata...')
+     data = {}
+     item_asins = set(item2id.keys())
+-    for info in tqdm.tqdm(self._parse_gz(path)):
++    for info in tqdm.tqdm(parse_gz(path)):
+       if info['asin'] not in item_asins:
+         continue
+       data[info['asin']] = info
+@@ -319,7 +322,7 @@ class AmazonReviews2014(AbstractDataset):
+     """
+     self.log('[DATASET] Extracting meta sentences...')
+     item2meta = {}
+-    for item, meta in tqdm(metadata.items()):
++    for item, meta in tqdm.tqdm(metadata.items()):
+       meta_sentence = ''
+       keys = set(meta.keys())
+       features_needed = [
+diff --git a/genrec/models/ActionPiece/tokenizer.py b/genrec/models/ActionPiece/tokenizer.py
+index 01227c8..51e6b87 100644
+--- a/genrec/models/ActionPiece/tokenizer.py
++++ b/genrec/models/ActionPiece/tokenizer.py
+@@ -64,7 +64,7 @@ class ActionPieceTokenizer(AbstractTokenizer):
+     self.encoded_labels = {}
+     self.collate_fn = {
+         'train': self.collate_fn_train,
+-        'val': self.collate_fn_val,
++        'val': self.collate_fn_test,
+         'test': self.collate_fn_test,
+     }
+ 
+diff --git a/genrec/utils.py b/genrec/utils.py
+index fa95f69..eb9f96f 100644
+--- a/genrec/utils.py
++++ b/genrec/utils.py
+@@ -14,6 +14,7 @@
+ # ==============================================================================
+ 
+ """Utils for GenRec."""
++from __future__ import annotations
+ 
+ import datetime
+ import hashlib
+@@ -28,9 +29,6 @@ from typing import Any, Optional, Union
+ 
+ import accelerate.utils
+ import datasets.utils.logging
+-from genrec.dataset import AbstractDataset
+-from genrec.model import AbstractModel
+-from genrec.trainer import Trainer
+ import numpy as np
+ import requests
+ import torch
+@@ -159,7 +157,7 @@ def log(message, accelerator, logger, level='info'):
+   """
+   if accelerator.is_main_process:
+     try:
+-      level = logging.getLevelNamesMapping()[level.upper()]
++      level = getattr(logging, level.upper())
+     except KeyError as exc:
+       raise ValueError(f'Invalid log level: {level}') from exc
+ 
+@@ -182,9 +180,10 @@ def get_tokenizer(model_name: str):
+   module_name = f'genrec.models.{model_name}.tokenizer'
+   try:
+     module = importlib.import_module(module_name)
+-    getattr(module, f'{model_name}Tokenizer')
++    tokenizer_class = getattr(module, f'{model_name}Tokenizer')
+   except Exception as exc:
+     raise ValueError(f'Tokenizer for model "{model_name}" not found.') from exc
++  return tokenizer_class
+ 
+ 
+ def get_model(model_name: Union[str, AbstractModel]) -> AbstractModel:
+@@ -200,7 +199,7 @@ def get_model(model_name: Union[str, AbstractModel]) -> AbstractModel:
+   Raises:
+       ValueError: If the model name is not found.
+   """
+-  if isinstance(model_name, AbstractModel):
++  if not isinstance(model_name, str):
+     return model_name
+ 
+   try:
+@@ -223,7 +222,7 @@ def get_dataset(dataset_name: Union[str, AbstractDataset]) -> AbstractDataset:
+   Raises:
+       ValueError: If the dataset name is not found.
+   """
+-  if isinstance(dataset_name, AbstractDataset):
++  if not isinstance(dataset_name, str):
+     return dataset_name
+ 
+   try:
+@@ -247,12 +246,16 @@ def get_trainer(model_name: Union[str, AbstractModel]):
+       the model name is not found, the default Trainer class is returned.
+   """
+   if isinstance(model_name, str):
+-    trainer_class = getattr(
+-        importlib.import_module(f'genrec.models.{model_name}.trainer'),
+-        f'{model_name}Trainer',
+-    )
+-    return trainer_class
++    try:
++      trainer_class = getattr(
++          importlib.import_module(f'genrec.models.{model_name}.trainer'),
++          f'{model_name}Trainer',
++      )
++      return trainer_class
++    except (ImportError, AttributeError):
++      pass
+ 
++  from genrec.trainer import Trainer
+   return Trainer
+ 
+ 
+@@ -294,10 +297,8 @@ def _convert_value(value: str) -> Any:
+     return float(value)
+   except ValueError:
+     pass
+-  try:
+-    return list(map(lambda x: x.strip(), value.strip('[]').split(',')))
+-  except (ValueError, TypeError):
+-    pass
++  if value.startswith('[') and value.endswith(']'):
++    return [x.strip() for x in value[1:-1].split(',')]
+   return value
+ 
+ 

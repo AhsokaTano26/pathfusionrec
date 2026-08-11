@@ -1,0 +1,22 @@
+{
+  "checkpoint": "/root/autodl-tmp/actionpiece_records/checkpoints/sports_full_seed2024_eval128_best_epoch10.pth",
+  "eval_batch_size": 32,
+  "physical_dataloader_batch_size": 6,
+  "n_inference_ensemble": 5,
+  "eval_seed": 2024,
+  "duration_seconds": 755.4809856414795,
+  "test_results": {
+    "ndcg@5": 0.004035830032080412,
+    "ndcg@10": 0.00543506583198905,
+    "ndcg@20": 0.007306891493499279,
+    "ndcg@50": 0.009715638123452663,
+    "recall@5": 0.005983482114970684,
+    "recall@10": 0.010421933606266975,
+    "recall@20": 0.01800663024187088,
+    "recall@50": 0.03019832633435726,
+    "err@5": 0.0,
+    "err@10": 0.0,
+    "err@20": 0.0,
+    "err@50": 0.0
+  }
+}
