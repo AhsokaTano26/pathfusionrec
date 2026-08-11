@@ -1,0 +1,35 @@
+run_id=sports_full_seed2024_eval128
+start_time=2026-07-26 16:35:50 +0800
+seed=2024
+dataset=AmazonReviews2014/Sports_and_Outdoors
+gpu=NVIDIA A800 80GB PCIe
+paper_gpu=NVIDIA A100 40GB
+repo_commit=ae8e61a89ade8d545a16119bcb5b3a43d9da852f
+lr=0.005
+weight_decay=0.15
+dropout_rate=0.1
+warmup_steps=10000
+train_batch_size=256
+eval_batch_size=128
+vocabulary_size=40000
+n_hash_buckets=128
+n_inference_segments=5
+beam_size=50
+num_layers=4
+d_model=128
+d_ff=1024
+num_heads=6
+d_kv=64
+optimizer=AdamW
+lr_scheduler=cosine
+max_epochs=200
+early_stop_patience=20
+validation_metric=ndcg@10
+sentence_model=sentence-transformers/sentence-t5-base
+
+NVIDIA A800 80GB PCIe, 81920 MiB, 550.54.14
+end_time=2026-07-27 00:28:14 +0800
+duration_seconds=28343
+duration_hms=07:52:23
+peak_gpu_memory_mib=42765
+exit_code=0

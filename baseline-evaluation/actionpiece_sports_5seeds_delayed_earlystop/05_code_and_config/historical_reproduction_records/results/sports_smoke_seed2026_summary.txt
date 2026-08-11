@@ -1,0 +1,22 @@
+experiment=ActionPiece Sports smoke test
+seed=2026
+epochs=1
+weight_decay=0.15
+lr=0.005
+n_hash_buckets=128
+eval_batch_size=32
+
+git_commit:
+ae8e61a89ade8d545a16119bcb5b3a43d9da852f
+
+gpu:
+NVIDIA A800 80GB PCIe, 81920 MiB, 550.54.14
+
+results:
+INFO:root:[Epoch 1] Train Loss: 7.853269938676141
+INFO:root:[Epoch 1] Val Results: OrderedDict([('ndcg@5', 0.0019833738915622234), ('ndcg@10', 0.0033804140985012054), ('ndcg@20', 0.003461462212726474), ('ndcg@50', 0.003461462212726474), ('recall@5', 0.003427158808335662), ('recall@10', 0.007865610532462597), ('recall@20', 0.00817461684346199), ('recall@50', 0.00817461684346199), ('err@5', 0.0), ('err@10', 0.0), ('err@20', 0.2981768548488617), ('err@50', 0.7192708849906921)])
+INFO:root:Best epoch: 1, Best val score: 0.0033804140985012054
+INFO:root:Test Results: OrderedDict([('ndcg@5', 0.0011357244802638888), ('ndcg@10', 0.002282059518620372), ('ndcg@20', 0.002335105324164033), ('ndcg@50', 0.002335105324164033), ('recall@5', 0.0019664026331156492), ('recall@10', 0.005646384786814451), ('recall@20', 0.005843024700880051), ('recall@50', 0.005843024700880051), ('err@5', 0.0), ('err@10', 0.0), ('err@20', 0.29933562874794006), ('err@50', 0.7197344303131104)])
+real	26m38.511s
+user	20m52.653s
+sys	5m43.759s
