@@ -1,0 +1,20 @@
+{
+  "mode": "semantic",
+  "fusion_strategy": "concat",
+  "protocol_dir": "/root/autodl-tmp/pathfusionrec/data/processed/sports_protocol",
+  "data_dir": "/root/autodl-tmp/pathfusionrec/baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/07_data_manifest/Sports_and_Outdoors",
+  "output_dir": "/root/autodl-tmp/pathfusionrec_stage2/PFR-Semantic-v1/seed2026",
+  "epochs": 100,
+  "batch_size": 256,
+  "eval_batch_size": 256,
+  "negative_count": 255,
+  "hidden_dim": 128,
+  "max_history_length": 20,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "seed": 2026,
+  "device": "cuda",
+  "max_train_samples": null,
+  "max_validation_samples": null,
+  "max_test_samples": null
+}
