@@ -1,0 +1,11 @@
+RESULT VALIDATION: PASS
+experiment_id: PFR-Semantic-v1
+commit: 6e0928a840435a55636e808b9b0e68a647807e9b
+mode: semantic
+fusion_strategy: concat
+seed: 2026
+history_epochs: 100
+best_epoch: 81
+best_validation_ndcg@10: 0.004933248720452091
+checkpoint_tensors: 37
+log_anomalies: none

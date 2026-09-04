@@ -1,0 +1,16 @@
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 python3 -u scripts/run_unified_next_item.py \
+  --mode interaction \
+  --fusion-strategy concat \
+  --epochs 100 \
+  --batch-size 256 \
+  --eval-batch-size 256 \
+  --negative-count 255 \
+  --hidden-dim 128 \
+  --max-history-length 20 \
+  --lr 0.001 \
+  --weight-decay 0.0001 \
+  --seed 2026 \
+  --device cuda \
+  --protocol-dir /root/autodl-tmp/pathfusionrec/data/processed/sports_protocol \
+  --data-dir /root/autodl-tmp/pathfusionrec/baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/07_data_manifest/Sports_and_Outdoors \
+  --output-dir /root/autodl-tmp/pathfusionrec_stage2/PFR-Interaction-v1/seed2026
