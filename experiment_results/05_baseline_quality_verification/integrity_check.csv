@@ -1,0 +1,51 @@
+scope,check,status,path,detail
+ActionPiece,five-seed coverage,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/02_results/five_seed_results.json,"observed=[2024, 2025, 2026, 2027, 2028]; expected=[2024, 2025, 2026, 2027, 2028]"
+ActionPiece,finite metric schema,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/02_results/five_seed_results.json,all required metrics are finite
+ActionPiece,independent ddof=1 summary,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/02_results/mean_std.csv,recomputed values match
+ActionPiece,seed 2024 log/result trace,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/03_logs/seed2024.log,"epochs=200, best_match=True, test_match=True"
+ActionPiece,seed 2024 checkpoint SHA-256,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/04_checkpoints/seed2024_best_model.pth,expected=1c0ec626c8ed161241e60b1d45473162c03769dfd8f7a0e921e40e00901b83a1; actual=1c0ec626c8ed161241e60b1d45473162c03769dfd8f7a0e921e40e00901b83a1
+ActionPiece,seed 2025 log/result trace,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/03_logs/seed2025.log,"epochs=200, best_match=True, test_match=True"
+ActionPiece,seed 2025 checkpoint SHA-256,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/04_checkpoints/seed2025_best_model.pth,expected=533e523de0bddc484fffbd645bced6f62244d3e65a9555eab6dace2ba5929dfa; actual=533e523de0bddc484fffbd645bced6f62244d3e65a9555eab6dace2ba5929dfa
+ActionPiece,seed 2026 log/result trace,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/03_logs/seed2026.log,"epochs=200, best_match=True, test_match=True"
+ActionPiece,seed 2026 checkpoint SHA-256,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/04_checkpoints/seed2026_best_model.pth,expected=628a5aa84a8afca9a674cf8b32181b9eb069a6ba5db3710a264c9083c1ba7dd4; actual=628a5aa84a8afca9a674cf8b32181b9eb069a6ba5db3710a264c9083c1ba7dd4
+ActionPiece,seed 2027 log/result trace,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/03_logs/seed2027.log,"epochs=200, best_match=True, test_match=True"
+ActionPiece,seed 2027 checkpoint SHA-256,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/04_checkpoints/seed2027_best_model.pth,expected=021b5800cda7ef82c7f0544a74142db78cd21db31a2999dce356c33800d731d3; actual=021b5800cda7ef82c7f0544a74142db78cd21db31a2999dce356c33800d731d3
+ActionPiece,seed 2028 log/result trace,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/03_logs/seed2028.log,"epochs=200, best_match=True, test_match=True"
+ActionPiece,seed 2028 checkpoint SHA-256,PASS,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop/04_checkpoints/seed2028_best_model.pth,expected=8f8bc84b64499fd0cd7402966c621dfc6770bcc69529c0a9139be551d4c6ca6b; actual=8f8bc84b64499fd0cd7402966c621dfc6770bcc69529c0a9139be551d4c6ca6b
+ActionPiece,unified subset metrics,INCOMPLETE,baseline-evaluation/actionpiece_sports_5seeds_delayed_earlystop,aggregated logs do not contain per-user predictions or cold/long-tail/sparse subsets
+SASRec,SHA-256 manifest,FAIL,baseline-evaluation/sasrec_sports_final/DELIVERY_SHA256SUMS.txt,"checked=86, missing=0, mismatched=1, crlf_normalized=76; mismatched_files=DELIVERY_MANIFEST.csv"
+SASRec,seed 2026 required artifacts,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2026,complete
+SASRec seed 2026,SHA-256 manifest,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2026/SHA256SUMS.txt,"checked=6, missing=0, mismatched=0, crlf_normalized=5"
+SASRec,seed 2027 required artifacts,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2027,complete
+SASRec seed 2027,SHA-256 manifest,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2027/SHA256SUMS.txt,"checked=6, missing=0, mismatched=0, crlf_normalized=5"
+SASRec,seed 2028 required artifacts,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2028,complete
+SASRec seed 2028,SHA-256 manifest,PASS,baseline-evaluation/sasrec_sports_final/05_runs/seed_2028/SHA256SUMS.txt,"checked=6, missing=0, mismatched=0, crlf_normalized=5"
+SASRec,independent ddof=1 summary,PASS,baseline-evaluation/sasrec_sports_final/06_results/sasrec_summary_results.csv,recomputed values match
+SASRec,five-seed coverage,INCOMPLETE,baseline-evaluation/sasrec_sports_final/05_runs,"observed=[2026, 2027, 2028]; missing=[2024, 2025]"
+SASRec,unified max history,INCOMPLETE,baseline-evaluation/sasrec_sports_final/03_config/common_config.json,current maxlen=200; sports_protocol requires 20
+SASRec,unified metrics and subsets,INCOMPLETE,baseline-evaluation/sasrec_sports_final/05_runs,@20/@50 and cold_start_target/long_tail_target/sparse_user are absent
+PFR-Fusion-Concat-v1,five-seed coverage,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1,"observed=[2026]; expected=[2024, 2025, 2026, 2027, 2028]"
+PFR-Fusion-Concat-v1,experiment card,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/experiment_card.md,missing
+PFR-Fusion-Concat-v1,seed 2026 metric schema,PASS,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/seed2026/metrics.json,four subsets and @5/@10/@20/@50 complete
+PFR-Fusion-Concat-v1,seed 2026 best checkpoint selection,PASS,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/seed2026/metrics.json,recorded_epoch=10; recomputed_epoch=10
+PFR-Fusion-Concat-v1,seed 2026 core artifacts,PASS,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/seed2026,complete
+PFR-Fusion-Concat-v1,seed 2026 consolidated environment,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/seed2026/environment.txt,python/GPU files exist but environment.txt is absent
+PFR-Fusion-Concat-v1 seed 2026,SHA-256 manifest,FAIL,experiment_results/04_unified_next_item/PFR-Fusion-Concat-v1/seed2026/sha256sum.txt,"checked=15, missing=1, mismatched=0, crlf_normalized=11; missing_files=qq_report.txt"
+PFR-Interaction-v1,five-seed coverage,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Interaction-v1,"observed=[2026]; expected=[2024, 2025, 2026, 2027, 2028]"
+PFR-Interaction-v1,experiment card,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Interaction-v1/experiment_card.md,missing
+PFR-Interaction-v1,seed 2026 metric schema,PASS,experiment_results/04_unified_next_item/PFR-Interaction-v1/seed2026/metrics.json,four subsets and @5/@10/@20/@50 complete
+PFR-Interaction-v1,seed 2026 best checkpoint selection,PASS,experiment_results/04_unified_next_item/PFR-Interaction-v1/seed2026/metrics.json,recorded_epoch=28; recomputed_epoch=28
+PFR-Interaction-v1,seed 2026 core artifacts,PASS,experiment_results/04_unified_next_item/PFR-Interaction-v1/seed2026,complete
+PFR-Interaction-v1,seed 2026 consolidated environment,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Interaction-v1/seed2026/environment.txt,python/GPU files exist but environment.txt is absent
+PFR-Interaction-v1 seed 2026,SHA-256 manifest,FAIL,experiment_results/04_unified_next_item/PFR-Interaction-v1/seed2026/sha256sum.txt,"checked=15, missing=1, mismatched=0, crlf_normalized=11; missing_files=qq_report.txt"
+PFR-Semantic-v1,five-seed coverage,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Semantic-v1,"observed=[2026]; expected=[2024, 2025, 2026, 2027, 2028]"
+PFR-Semantic-v1,experiment card,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Semantic-v1/experiment_card.md,missing
+PFR-Semantic-v1,seed 2026 metric schema,PASS,experiment_results/04_unified_next_item/PFR-Semantic-v1/seed2026/metrics.json,four subsets and @5/@10/@20/@50 complete
+PFR-Semantic-v1,seed 2026 best checkpoint selection,PASS,experiment_results/04_unified_next_item/PFR-Semantic-v1/seed2026/metrics.json,recorded_epoch=81; recomputed_epoch=81
+PFR-Semantic-v1,seed 2026 core artifacts,PASS,experiment_results/04_unified_next_item/PFR-Semantic-v1/seed2026,complete
+PFR-Semantic-v1,seed 2026 consolidated environment,INCOMPLETE,experiment_results/04_unified_next_item/PFR-Semantic-v1/seed2026/environment.txt,python/GPU files exist but environment.txt is absent
+PFR-Semantic-v1 seed 2026,SHA-256 manifest,FAIL,experiment_results/04_unified_next_item/PFR-Semantic-v1/seed2026/sha256sum.txt,"checked=15, missing=1, mismatched=0, crlf_normalized=11; missing_files=qq_report.txt"
+PathFusionRec,commit consistency,PASS,experiment_results/04_unified_next_item,commits=['6e0928a840435a55636e808b9b0e68a647807e9b']
+sports_protocol,split.json SHA-256,PASS,data/processed/sports_protocol/split.json,expected=5a4e8523dc374f42d394cd64dc1df745002d7f278ba7f85ad5c7e6b25fe0f50a; actual=5a4e8523dc374f42d394cd64dc1df745002d7f278ba7f85ad5c7e6b25fe0f50a
+sports_protocol,bundles.json SHA-256,PASS,data/processed/sports_protocol/bundles.json,expected=48f2eceedec38e7d25fa7fa021101c21c6c7f15ec616d20400658465038788a2; actual=48f2eceedec38e7d25fa7fa021101c21c6c7f15ec616d20400658465038788a2
+sports_protocol,subset_masks.json SHA-256,PASS,data/processed/sports_protocol/subset_masks.json,expected=602456e6657457e46100a7ab259eeb3889e5aeb54de9d0e4c5e5f43bf09eccf3; actual=602456e6657457e46100a7ab259eeb3889e5aeb54de9d0e4c5e5f43bf09eccf3

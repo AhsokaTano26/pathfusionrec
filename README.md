@@ -29,6 +29,19 @@ Run unit tests with:
 PYTHONPATH=src python3 -m unittest discover -s tests -v
 ```
 
+Create the project Conda environment with:
+
+```bash
+conda env create -f environment.yml
+conda activate pathfusionrec
+```
+
+Rebuild the independent baseline-quality report with:
+
+```bash
+python scripts/verify_baseline_delivery.py
+```
+
 ## Real-data smoke experiment
 
 The initial real-data experiment uses raw Amazon `related.bought_together`

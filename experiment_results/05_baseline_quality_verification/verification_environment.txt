@@ -1,0 +1,6 @@
+python=3.12.13 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:26:47) [MSC v.1942 64 bit (AMD64)]
+platform=Windows-11-10.0.26200-SP0
+scikit_learn=1.9.0
+torch=2.5.1+cu121
+cuda_available=True
+gpu=NVIDIA GeForce RTX 4060 Laptop GPU

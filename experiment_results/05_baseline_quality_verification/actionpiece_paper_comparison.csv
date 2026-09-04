@@ -1,0 +1,5 @@
+method,dataset,metric,current_mean,current_sample_std,paper_mean,paper_std,relative_gap,protocol_assessment,source
+ActionPiece,Amazon Sports,ndcg@5,0.01872100941836834,0.0007475030793568341,0.0205,0.0002,-0.08678002837227616,近似一致；延迟早停与统一显式全库评分口径不同,https://arxiv.org/abs/2502.13581
+ActionPiece,Amazon Sports,ndcg@10,0.02380681224167347,0.0007382264151242291,0.0264,0.0003,-0.09822680902752012,近似一致；延迟早停与统一显式全库评分口径不同,https://arxiv.org/abs/2502.13581
+ActionPiece,Amazon Sports,recall@5,0.028456654399633408,0.0011210220476192512,0.0316,0.0005,-0.09947296203691758,近似一致；延迟早停与统一显式全库评分口径不同,https://arxiv.org/abs/2502.13581
+ActionPiece,Amazon Sports,recall@10,0.044244058430194855,0.001087795843734873,0.05,0.0007,-0.1151188313961029,近似一致；延迟早停与统一显式全库评分口径不同,https://arxiv.org/abs/2502.13581
