@@ -10,7 +10,7 @@
 
 ## 数据流
 
-1. 按 id_mapping.json 的数值商品 ID 顺序读取 item.sentence.feat，使用记录精确版本的 sentence-transformers/sentence-t5-base 编码，得到 [商品数, 768] 的 float32 向量；严禁 PCA。
+1. 按 id_mapping.json 的数值商品 ID 顺序读取 metadata.sentence.json，使用记录精确版本的 sentence-transformers/sentence-t5-base 编码，得到 [商品数, 768] 的 float32 向量；严禁 PCA。item.sentence.feat 仅含 ActionPiece token ID，不能作为 Sentence-T5 文本输入。
 2. 标准化统计量和 RQ-VAE 只用训练历史/训练目标中出现的商品拟合。拟合后冻结 RQ-VAE，并为全目录商品编码，以便仅有内容、没有训练交互的商品也获得 ID。
 3. RQ-VAE 使用 768 到 128 的可学习 encoder、大小为 [4, 16, 256] 的三级残差码本，以及 128 到 768 decoder。用重建损失、commitment 损失和码本损失训练，并以残差 k-means 初始化码本。
 4. 每个商品的三级码后附加确定性的碰撞码，形成唯一的四 token Semantic ID；保存商品到 ID 和 ID 到商品的双向映射。

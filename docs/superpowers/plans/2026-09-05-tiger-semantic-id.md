@@ -69,7 +69,7 @@ if vectors.dtype != np.float32 or vectors.ndim != 2 or vectors.shape[1] != 768:
 np.save(output_dir / 'vectors.npy', vectors)
 ~~~
 
-按数值商品 ID 读取 item.sentence.feat，使用明确 revision 的 SentenceTransformer 编码；manifest 写入文本、映射、模型 revision 的 SHA-256。新增 sentence-transformers 和 transformers 依赖。
+按数值商品 ID 读取 metadata.sentence.json，使用明确 revision 的 SentenceTransformer 编码；item.sentence.feat 是 ActionPiece token ID，不作为文本输入。manifest 写入文本、映射、模型 revision 的 SHA-256。新增 sentence-transformers 和 transformers 依赖。
 
 - [ ] **步骤 4：确认 GREEN**
 
