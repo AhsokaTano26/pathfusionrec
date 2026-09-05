@@ -76,6 +76,24 @@ def save_content_artifact(
   )
 
 
+def load_content_artifact(
+    content_dir: Path,
+) -> tuple[np.ndarray, list[int], dict[str, Any]]:
+  """Load and validate a previously generated content artifact."""
+  vectors = np.load(content_dir / 'vectors.npy')
+  item_ids = json.loads((content_dir / 'item_ids.json').read_text(encoding='utf-8'))
+  manifest = json.loads((content_dir / 'manifest.json').read_text(encoding='utf-8'))
+  if vectors.dtype != np.float32 or vectors.ndim != 2:
+    raise ValueError('Content artifact vectors must be a float32 matrix.')
+  if vectors.shape[1] != CONTENT_DIMENSION:
+    raise ValueError(f'Content artifact must have dimension {CONTENT_DIMENSION}.')
+  if vectors.shape[0] != len(item_ids) or len(set(item_ids)) != len(item_ids):
+    raise ValueError('Content artifact item IDs do not match vectors.')
+  if manifest.get('dimension') != CONTENT_DIMENSION:
+    raise ValueError('Content artifact manifest has an invalid dimension.')
+  return vectors, [int(item_id) for item_id in item_ids], manifest
+
+
 def standardize_train_items(
     vectors: np.ndarray, train_rows: np.ndarray
 ) -> tuple[np.ndarray, dict[str, np.ndarray]]:
