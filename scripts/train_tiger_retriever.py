@@ -116,6 +116,7 @@ def run_training(
     weight_decay: float = 1e-4,
     seed: int = 2026,
     num_beams: int = 50,
+    eval_interval: int = 1,
     user_bucket_count: int = 2_000,
     d_model: int = 128,
     d_ff: int = 1024,
@@ -131,6 +132,8 @@ def run_training(
   """Train a frozen-tokenizer TIGER retriever under the fixed protocol."""
   if epochs <= 0 or batch_size <= 0 or eval_batch_size <= 0 or num_beams <= 0:
     raise ValueError('Epochs, batch sizes, and beam count must be positive.')
+  if eval_interval <= 0:
+    raise ValueError('The validation interval must be positive.')
   random.seed(seed)
   np.random.seed(seed)
   torch.manual_seed(seed)
@@ -182,6 +185,8 @@ def run_training(
       loss.backward()
       optimizer.step()
       losses.append(float(loss.detach().cpu()))
+    if epoch % eval_interval != 0 and epoch != epochs:
+      continue
     validation = _evaluate(retriever, validation_samples, None, num_beams)['all']
     history.append({'epoch': epoch, 'train_loss': float(np.mean(losses)), **validation})
     if validation['NDCG@10'] > best_score:
@@ -204,6 +209,7 @@ def run_training(
       'weight_decay': weight_decay,
       'seed': seed,
       'num_beams': num_beams,
+      'eval_interval': eval_interval,
       'user_bucket_count': user_bucket_count,
       'd_model': d_model,
       'd_ff': d_ff,
@@ -249,6 +255,7 @@ def parse_args() -> argparse.Namespace:
   parser.add_argument('--weight-decay', type=float, default=1e-4)
   parser.add_argument('--seed', type=int, default=2026)
   parser.add_argument('--num-beams', type=int, default=50)
+  parser.add_argument('--eval-interval', type=int, default=1)
   parser.add_argument('--user-bucket-count', type=int, default=2_000)
   parser.add_argument('--max-train-samples', type=int)
   parser.add_argument('--max-validation-samples', type=int)
@@ -271,6 +278,7 @@ def main() -> None:
       weight_decay=args.weight_decay,
       seed=args.seed,
       num_beams=args.num_beams,
+      eval_interval=args.eval_interval,
       user_bucket_count=args.user_bucket_count,
       max_train_samples=args.max_train_samples,
       max_validation_samples=args.max_validation_samples,

@@ -83,19 +83,40 @@ class TigerRetriever(nn.Module):
     beams: list[tuple[list[int], float]] = [([self.tokenizer.bos_token_id], 0.0)]
     completed: list[tuple[int, float]] = []
     self.eval()
+    # Encode the history once and reuse the hidden states for every beam step.
+    encoder_outputs = self.model.encoder(
+        input_ids=input_ids, attention_mask=attention_mask
+    )
     for _ in range(5):
+      if not beams:
+        break
+      max_length = max(len(tokens) for tokens, _ in beams)
+      decoder_input_ids = torch.full(
+          (len(beams), max_length),
+          self.tokenizer.pad_token_id,
+          dtype=torch.long,
+          device=device,
+      )
+      prefix_lengths: list[int] = []
+      for row, (tokens, _) in enumerate(beams):
+        decoder_input_ids[row, : len(tokens)] = torch.tensor(
+            tokens, dtype=torch.long, device=device
+        )
+        prefix_lengths.append(len(tokens))
+      # One batched decoder forward across all beams for this step.
+      logits = self.model(
+          input_ids=input_ids,
+          attention_mask=attention_mask,
+          encoder_outputs=encoder_outputs,
+          decoder_input_ids=decoder_input_ids,
+      ).logits
       candidates: list[tuple[list[int], float]] = []
-      for tokens, score in beams:
+      for row, (tokens, score) in enumerate(beams):
         allowed = self.tokenizer.allowed_next(tokens)
         if not allowed:
           continue
-        decoder_input_ids = torch.tensor([tokens], dtype=torch.long, device=device)
-        logits = self.model(
-            input_ids=input_ids,
-            attention_mask=attention_mask,
-            decoder_input_ids=decoder_input_ids,
-        ).logits[0, -1]
-        log_probabilities = functional.log_softmax(logits, dim=-1)
+        next_logits = logits[row, prefix_lengths[row] - 1]
+        log_probabilities = functional.log_softmax(next_logits, dim=-1)
         for token in allowed:
           candidates.append((tokens + [token], score + float(log_probabilities[token])))
       candidates.sort(key=lambda item: item[1], reverse=True)
@@ -109,8 +130,6 @@ class TigerRetriever(nn.Module):
           completed.append((item_id, score))
         else:
           beams.append((tokens, score))
-      if not beams:
-        break
     completed.sort(key=lambda item: item[1], reverse=True)
     results: list[int] = []
     for item_id, _ in completed:
