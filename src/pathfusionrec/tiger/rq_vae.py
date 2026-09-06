@@ -110,6 +110,7 @@ class ResidualQuantizedVAE(nn.Module):
       raise RuntimeError('scikit-learn is required for codebook initialization.') from error
     if vectors.ndim != 2 or vectors.shape[1] != self.input_dim:
       raise ValueError('Vectors must have shape [n_items, input_dim].')
+    vectors = vectors.to(device=next(self.parameters()).device)
     latent = self.encoder(vectors).cpu().numpy()
     residual = latent
     for level, codebook in enumerate(self.codebooks):
