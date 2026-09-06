@@ -33,7 +33,7 @@ def load_ordered_item_texts(processed_dir: Path) -> tuple[list[int], list[str]]:
   item_ids: list[int] = []
   sentences: list[str] = []
   for item_id in range(1, len(id_to_item)):
-    item = id_to_item[str(item_id)]
+    item = id_to_item[item_id]
     sentence = item_sentences.get(item)
     if not isinstance(sentence, str) or not sentence.strip():
       raise ValueError(f'Missing item sentence for numeric item ID {item_id}.')
