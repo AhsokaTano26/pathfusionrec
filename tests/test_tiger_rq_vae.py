@@ -8,6 +8,7 @@ import numpy as np
 import torch
 
 from pathfusionrec.tiger.rq_vae import (
+    FusionResidualQuantizedVAE,
     ResidualQuantizedVAE,
     append_collision_codes,
 )
@@ -37,6 +38,17 @@ class ResidualQuantizedVaeTest(unittest.TestCase):
     )
 
     self.assertEqual(semantic_ids, [(1, 2, 3, 0), (1, 2, 3, 1)])
+
+  def test_fusion_rqvae_balances_two_modal_reconstructions(self) -> None:
+    model = FusionResidualQuantizedVAE(6, 2, 4, 3, [2, 3, 5])
+    output = model(torch.randn(6, 6), torch.randn(6, 2))
+
+    self.assertEqual(output.semantic_reconstruction.shape, (6, 6))
+    self.assertEqual(output.behavior_reconstruction.shape, (6, 2))
+    self.assertEqual(output.codes.shape, (6, 3))
+    output.loss.backward()
+    self.assertIsNotNone(model.semantic_encoder[0].weight.grad)
+    self.assertIsNotNone(model.behavior_encoder[0].weight.grad)
 
 
 if __name__ == '__main__':

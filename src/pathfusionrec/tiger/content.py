@@ -42,19 +42,17 @@ def load_ordered_item_texts(processed_dir: Path) -> tuple[list[int], list[str]]:
   return item_ids, sentences
 
 
-def save_content_artifact(
+def save_vector_artifact(
     output_dir: Path,
     vectors: np.ndarray,
     item_ids: Sequence[int],
     manifest: dict[str, Any],
 ) -> None:
-  """Save a validated Sentence-T5 content artifact."""
+  """Save a validated item-vector artifact with its native dimension."""
   if vectors.dtype != np.float32 or vectors.ndim != 2:
-    raise ValueError('Sentence-T5 content vectors must be a float32 matrix.')
-  if vectors.shape[1] != CONTENT_DIMENSION:
-    raise ValueError(
-        f'Sentence-T5 content vectors must have dimension {CONTENT_DIMENSION}.'
-    )
+    raise ValueError('Item vectors must be a float32 matrix.')
+  if vectors.shape[1] <= 0:
+    raise ValueError('Item vectors must have a positive dimension.')
   if vectors.shape[0] != len(item_ids) or len(set(item_ids)) != len(item_ids):
     raise ValueError('Content vectors and unique item IDs must have equal length.')
 
@@ -67,7 +65,7 @@ def save_content_artifact(
   artifact_manifest = {
       **manifest,
       'dtype': 'float32',
-      'dimension': CONTENT_DIMENSION,
+      'dimension': int(vectors.shape[1]),
       'num_items': len(item_ids),
   }
   (output_dir / 'manifest.json').write_text(
@@ -76,22 +74,46 @@ def save_content_artifact(
   )
 
 
-def load_content_artifact(
+def load_vector_artifact(
     content_dir: Path,
 ) -> tuple[np.ndarray, list[int], dict[str, Any]]:
-  """Load and validate a previously generated content artifact."""
+  """Load and validate a previously generated item-vector artifact."""
   vectors = np.load(content_dir / 'vectors.npy')
   item_ids = json.loads((content_dir / 'item_ids.json').read_text(encoding='utf-8'))
   manifest = json.loads((content_dir / 'manifest.json').read_text(encoding='utf-8'))
   if vectors.dtype != np.float32 or vectors.ndim != 2:
-    raise ValueError('Content artifact vectors must be a float32 matrix.')
-  if vectors.shape[1] != CONTENT_DIMENSION:
-    raise ValueError(f'Content artifact must have dimension {CONTENT_DIMENSION}.')
+    raise ValueError('Vector artifact must be a float32 matrix.')
+  if vectors.shape[1] <= 0:
+    raise ValueError('Vector artifact must have a positive dimension.')
   if vectors.shape[0] != len(item_ids) or len(set(item_ids)) != len(item_ids):
     raise ValueError('Content artifact item IDs do not match vectors.')
-  if manifest.get('dimension') != CONTENT_DIMENSION:
+  if manifest.get('dimension') != vectors.shape[1]:
     raise ValueError('Content artifact manifest has an invalid dimension.')
   return vectors, [int(item_id) for item_id in item_ids], manifest
+
+
+def save_content_artifact(
+    output_dir: Path,
+    vectors: np.ndarray,
+    item_ids: Sequence[int],
+    manifest: dict[str, Any],
+) -> None:
+  """Save a 768-dimensional Sentence-T5 content artifact."""
+  if vectors.ndim != 2 or vectors.shape[1] != CONTENT_DIMENSION:
+    raise ValueError(
+        f'Sentence-T5 content vectors must have dimension {CONTENT_DIMENSION}.'
+    )
+  save_vector_artifact(output_dir, vectors, item_ids, manifest)
+
+
+def load_content_artifact(
+    content_dir: Path,
+) -> tuple[np.ndarray, list[int], dict[str, Any]]:
+  """Load a 768-dimensional Sentence-T5 content artifact."""
+  vectors, item_ids, manifest = load_vector_artifact(content_dir)
+  if vectors.shape[1] != CONTENT_DIMENSION:
+    raise ValueError(f'Content artifact must have dimension {CONTENT_DIMENSION}.')
+  return vectors, item_ids, manifest
 
 
 def standardize_train_items(
