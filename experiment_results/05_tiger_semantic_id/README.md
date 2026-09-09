@@ -34,9 +34,9 @@ PYTHONPATH=src python3 scripts/train_tiger_rqvae.py \
 PYTHONPATH=src python3 scripts/train_tiger_retriever.py \
   --protocol-dir data/processed/sports_protocol \
   --semantic-id-dir data/processed/tiger_rqvae_v1 \
-  --output-dir experiment_results/05_tiger_semantic_id/TIGER-v1/seed2026 \
-  --seed 2026 --batch-size 256 --eval-batch-size 256 \
-  --epochs 100 --num-beams 50 --device cuda
+    --output-dir experiment_results/05_tiger_semantic_id/TIGER-v1/seed2026 \
+    --seed 2026 --batch-size 256 --eval-batch-size 256 \
+    --epochs 100 --num-beams 50 --num-workers 8 --prefetch-factor 4 --device cuda
 ```
 
 该结果是单 seed、生成式全目录检索结果；在统一候选与解码语义前，不能与历史
@@ -115,9 +115,14 @@ for REPRESENTATION in semantic behavior fusion; do
     --semantic-id-dir data/processed/tiger_rqvae_ablation/${REPRESENTATION}_latent32 \
     --output-dir experiment_results/05_tiger_semantic_id/TIGER-representation-ablation/seed2026/${REPRESENTATION} \
     --seed 2026 --batch-size 256 --eval-batch-size 256 \
-    --epochs 100 --eval-interval 10 --num-beams 50 --device cuda
+    --epochs 100 --eval-interval 10 --num-beams 50 \
+    --num-workers 8 --prefetch-factor 4 --device cuda
 done
 ```
+
+训练 loader 默认启用 8 个持久 CPU worker、页锁定内存和预取；`eval_batch_size=256` 会将多个
+用户的独立受约束 beam search 合并为一个 GPU 批次。二者不改变 Semantic ID、beam 宽度、候选约束
+或按用户的排序规则；显存不足时优先下调 `--eval-batch-size`，而不是更改 `--num-beams`。
 
 报告 `all` 与三个固定子集的 NDCG/Recall@{5,10,20,50}，同时保存每个 RQ-VAE 的
 `config.json`、`codebook_diagnostics.json`、`standardization.json` 和每个 retriever 的

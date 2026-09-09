@@ -53,6 +53,7 @@ class TigerTrainingScriptTest(unittest.TestCase):
           num_heads=2,
           d_kv=16,
           num_beams=4,
+          num_workers=0,
           device='cpu',
       )
 
@@ -61,6 +62,7 @@ class TigerTrainingScriptTest(unittest.TestCase):
           {'all', 'cold_start_target', 'long_tail_target', 'sparse_user'},
       )
       self.assertTrue((root / 'run' / 'best_model.pth').exists())
+      self.assertEqual(metrics['arguments']['num_workers'], 0)
 
   def test_runner_respects_eval_interval(self) -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -105,6 +107,7 @@ class TigerTrainingScriptTest(unittest.TestCase):
           num_heads=2,
           d_kv=16,
           num_beams=4,
+          num_workers=0,
           device='cpu',
       )
 
@@ -151,6 +154,7 @@ class TigerTrainingScriptTest(unittest.TestCase):
           num_heads=2,
           d_kv=16,
           num_beams=4,
+          num_workers=0,
           device='cpu',
       )
 

@@ -100,6 +100,23 @@ class TigerRetrieverTest(unittest.TestCase):
 
     self.assertTrue(set(items).issubset({1, 2, 3}))
 
+  def test_batch_generation_matches_per_history(self) -> None:
+    histories = [
+        self.tokenizer.encode_history(1, [1]),
+        self.tokenizer.encode_history(2, [2, 3]),
+        self.tokenizer.encode_history(3, [3, 1, 2]),
+    ]
+
+    generated = self.retriever.generate_top_k_batch(histories, k=2, beam_size=4)
+
+    self.assertEqual(
+        generated,
+        [
+            self.retriever.generate_top_k(history, k=2, beam_size=4)
+            for history in histories
+        ],
+    )
+
 
 class TigerRetrieverBatchEquivalenceTest(unittest.TestCase):
   """The batched beam decoder must match the sequential decoder exactly."""

@@ -6,6 +6,7 @@ import argparse
 import copy
 import json
 import random
+from functools import partial
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -15,7 +16,7 @@ from torch.utils.data import DataLoader
 from transformers import T5Config
 
 from pathfusionrec.evaluation import evaluate_ranked_lists
-from pathfusionrec.tiger.retriever import TigerRetriever, default_tiger_config
+from pathfusionrec.tiger.retriever import TigerRetriever, default_tiger_config, make_tiger_batch
 from pathfusionrec.tiger.tokenizer import SemanticIdTokenizer
 
 
@@ -45,16 +46,24 @@ def _evaluate(
     samples: Sequence[dict[str, Any]],
     subset_masks: Sequence[dict[str, bool]] | None,
     num_beams: int,
+    batch_size: int,
 ) -> dict[str, dict[str, float]]:
   rankings: list[list[int]] = []
   targets: list[int] = []
-  for sample in samples:
-    history = [int(item_id) for item_id in sample['history']]
-    target = int(sample['target'])
-    history_tokens = retriever.tokenizer.encode_history(int(sample['user_id']), history)
-    generated = retriever.generate_top_k(history_tokens, k=50, beam_size=num_beams)
-    rankings.append([item_id for item_id in generated if item_id not in set(history) or item_id == target])
-    targets.append(target)
+  for offset in range(0, len(samples), batch_size):
+    sample_batch = samples[offset : offset + batch_size]
+    histories = [[int(item_id) for item_id in sample['history']] for sample in sample_batch]
+    history_tokens = [
+        retriever.tokenizer.encode_history(int(sample['user_id']), history)
+        for sample, history in zip(sample_batch, histories, strict=True)
+    ]
+    generated_batch = retriever.generate_top_k_batch(
+        history_tokens, k=50, beam_size=num_beams
+    )
+    for history, sample, generated in zip(histories, sample_batch, generated_batch, strict=True):
+      target = int(sample['target'])
+      rankings.append([item_id for item_id in generated if item_id not in set(history) or item_id == target])
+      targets.append(target)
   results = {'all': evaluate_ranked_lists(rankings, targets, ks=(5, 10, 20, 50))}
   if subset_masks is not None:
     if len(subset_masks) != len(samples):
@@ -117,6 +126,8 @@ def run_training(
     seed: int = 2026,
     num_beams: int = 50,
     eval_interval: int = 1,
+    num_workers: int = 8,
+    prefetch_factor: int = 4,
     user_bucket_count: int = 2_000,
     d_model: int = 128,
     d_ff: int = 1024,
@@ -134,6 +145,8 @@ def run_training(
     raise ValueError('Epochs, batch sizes, and beam count must be positive.')
   if eval_interval <= 0:
     raise ValueError('The validation interval must be positive.')
+  if num_workers < 0 or prefetch_factor <= 0:
+    raise ValueError('Worker count must be non-negative and prefetch factor must be positive.')
   random.seed(seed)
   np.random.seed(seed)
   torch.manual_seed(seed)
@@ -164,11 +177,21 @@ def run_training(
   )
   torch_device = torch.device(device)
   retriever = TigerRetriever(tokenizer, config).to(torch_device)
+  loader_options: dict[str, Any] = {
+      'batch_size': batch_size,
+      'shuffle': True,
+      'collate_fn': partial(make_tiger_batch, tokenizer),
+      'num_workers': num_workers,
+      'pin_memory': torch_device.type == 'cuda',
+  }
+  if num_workers > 0:
+    loader_options.update({
+        'persistent_workers': True,
+        'prefetch_factor': prefetch_factor,
+    })
   loader = DataLoader(
       train_samples,
-      batch_size=batch_size,
-      shuffle=True,
-      collate_fn=retriever.make_batch,
+      **loader_options,
   )
   optimizer = torch.optim.AdamW(retriever.parameters(), lr=lr, weight_decay=weight_decay)
   best_epoch = 0
@@ -179,7 +202,10 @@ def run_training(
     retriever.train()
     losses: list[float] = []
     for batch in loader:
-      batch = {name: value.to(torch_device) for name, value in batch.items()}
+      batch = {
+          name: value.to(torch_device, non_blocking=torch_device.type == 'cuda')
+          for name, value in batch.items()
+      }
       loss = retriever.loss(batch)
       optimizer.zero_grad()
       loss.backward()
@@ -187,7 +213,9 @@ def run_training(
       losses.append(float(loss.detach().cpu()))
     if epoch % eval_interval != 0 and epoch != epochs:
       continue
-    validation = _evaluate(retriever, validation_samples, None, num_beams)['all']
+    validation = _evaluate(
+        retriever, validation_samples, None, num_beams, eval_batch_size
+    )['all']
     history.append({'epoch': epoch, 'train_loss': float(np.mean(losses)), **validation})
     if validation['NDCG@10'] > best_score:
       best_score = validation['NDCG@10']
@@ -196,7 +224,9 @@ def run_training(
   if best_state is None:
     raise RuntimeError('No validation checkpoint was produced.')
   retriever.load_state_dict(best_state)
-  test_metrics = _evaluate(retriever, test_samples, test_masks, num_beams)
+  test_metrics = _evaluate(
+      retriever, test_samples, test_masks, num_beams, eval_batch_size
+  )
 
   output_dir.mkdir(parents=True, exist_ok=True)
   torch.save(best_state, output_dir / 'best_model.pth')
@@ -210,6 +240,8 @@ def run_training(
       'seed': seed,
       'num_beams': num_beams,
       'eval_interval': eval_interval,
+      'num_workers': num_workers,
+      'prefetch_factor': prefetch_factor,
       'user_bucket_count': user_bucket_count,
       'd_model': d_model,
       'd_ff': d_ff,
@@ -256,6 +288,8 @@ def parse_args() -> argparse.Namespace:
   parser.add_argument('--seed', type=int, default=2026)
   parser.add_argument('--num-beams', type=int, default=50)
   parser.add_argument('--eval-interval', type=int, default=1)
+  parser.add_argument('--num-workers', type=int, default=8)
+  parser.add_argument('--prefetch-factor', type=int, default=4)
   parser.add_argument('--user-bucket-count', type=int, default=2_000)
   parser.add_argument('--max-train-samples', type=int)
   parser.add_argument('--max-validation-samples', type=int)
@@ -279,6 +313,8 @@ def main() -> None:
       seed=args.seed,
       num_beams=args.num_beams,
       eval_interval=args.eval_interval,
+      num_workers=args.num_workers,
+      prefetch_factor=args.prefetch_factor,
       user_bucket_count=args.user_bucket_count,
       max_train_samples=args.max_train_samples,
       max_validation_samples=args.max_validation_samples,
