@@ -1,0 +1,36 @@
+{
+  "batch_size": 256,
+  "behavior_dimension": 128,
+  "behavior_manifest": {
+    "dimension": 128,
+    "dtype": "float32",
+    "num_items": 18357,
+    "representation": "pfr_interaction_embedding",
+    "source_checkpoint": "best_model.pth",
+    "source_checkpoint_sha256": "1ab1401b78da6a5d8ff8bb332410ea6ea7fd1e334e685befe6be622cd1dc5bd3",
+    "source_tensor": "interaction_embedding.weight"
+  },
+  "branch_dim": 128,
+  "codebook_sizes": [
+    4,
+    16,
+    256
+  ],
+  "commitment_weight": 0.25,
+  "device": "cuda",
+  "epochs": 100,
+  "latent_dim": 32,
+  "lr": 0.001,
+  "seed": 2026,
+  "semantic_dimension": 768,
+  "semantic_manifest": {
+    "dimension": 768,
+    "dtype": "float32",
+    "item_mapping_sha256": "68e6fe2a64ec03371a524530e76f71989c446ac08094ac7df96bf66c563efb99",
+    "metadata_sentence_sha256": "9a3139f1214f04cceca8f7fbc2572bff80463451e8f34ef26077e1901b834611",
+    "model": "sentence-transformers/sentence-t5-base",
+    "model_revision": "fc5d4628481afbbaaacd7af6bb07cf9d3865f781",
+    "num_items": 18357
+  },
+  "training_item_count": 18284
+}

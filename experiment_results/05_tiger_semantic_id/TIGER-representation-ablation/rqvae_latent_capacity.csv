@@ -1,0 +1,10 @@
+representation,latent_dim,used_codes,dead_codes,final_reconstruction_loss
+semantic,32,"[4, 16, 256]","[0, 0, 0]",{'loss': 1.009034}
+behavior,32,"[4, 16, 256]","[0, 0, 0]",{'loss': 1.138718}
+fusion,32,"[4, 16, 239]","[0, 0, 17]","{'loss': 2.131427, 'semantic_reconstruction_loss': 0.588941, 'behavior_reconstruction_loss': 0.742727}"
+semantic,64,"[4, 16, 244]","[0, 0, 12]",{'loss': 1.252079}
+behavior,64,"[4, 16, 256]","[0, 0, 0]",{'loss': 1.530722}
+fusion,64,"[4, 16, 206]","[0, 0, 50]","{'loss': 2.374613, 'semantic_reconstruction_loss': 0.585858, 'behavior_reconstruction_loss': 0.744676}"
+semantic,128,"[4, 16, 224]","[0, 0, 32]",{'loss': 1.545583}
+behavior,128,"[4, 16, 256]","[0, 0, 0]",{'loss': 1.885925}
+fusion,128,"[4, 16, 174]","[0, 0, 82]","{'loss': 2.53883, 'semantic_reconstruction_loss': 0.585528, 'behavior_reconstruction_loss': 0.744511}"

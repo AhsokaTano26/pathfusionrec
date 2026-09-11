@@ -1,0 +1,4 @@
+RESULT VALIDATION: PASS
+catalog_items: 18357
+unique_semantic_ids: 18357
+codebook_used: [4, 16, 256]

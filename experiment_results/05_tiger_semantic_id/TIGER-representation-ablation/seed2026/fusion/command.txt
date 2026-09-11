@@ -1,0 +1,7 @@
+PYTHONPATH=src:. python scripts/train_tiger_retriever.py \
+  --protocol-dir data/processed/sports_protocol \
+  --semantic-id-dir data/processed/tiger_rqvae_ablation/fusion_latent32 \
+  --output-dir experiment_results/05_tiger_semantic_id/TIGER-representation-ablation/seed2026/fusion \
+  --seed 2026 --batch-size 256 --eval-batch-size 256 \
+  --epochs 100 --eval-interval 10 --num-beams 50 \
+  --num-workers 8 --prefetch-factor 4 --device cuda

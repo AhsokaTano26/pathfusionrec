@@ -1,0 +1,21 @@
+grid start 2026-09-09T11:58:26Z
+[19:58:26] START semantic_latent32
+[19:59:13] PASS  semantic_latent32  out=data/processed/tiger_rqvae_ablation/semantic_latent32
+[19:59:13] START behavior_latent32
+[19:59:59] PASS  behavior_latent32  out=data/processed/tiger_rqvae_ablation/behavior_latent32
+[19:59:59] START fusion_latent32
+[20:01:13] PASS  fusion_latent32  out=data/processed/tiger_rqvae_ablation/fusion_latent32
+[20:01:13] START semantic_latent64
+[20:02:00] PASS  semantic_latent64  out=data/processed/tiger_rqvae_ablation/semantic_latent64
+[20:02:00] START behavior_latent64
+[20:02:47] PASS  behavior_latent64  out=data/processed/tiger_rqvae_ablation/behavior_latent64
+[20:02:47] START fusion_latent64
+[20:04:02] PASS  fusion_latent64  out=data/processed/tiger_rqvae_ablation/fusion_latent64
+[20:04:02] START semantic_latent128
+[20:05:00] PASS  semantic_latent128  out=data/processed/tiger_rqvae_ablation/semantic_latent128
+[20:05:00] START behavior_latent128
+[20:05:56] PASS  behavior_latent128  out=data/processed/tiger_rqvae_ablation/behavior_latent128
+[20:05:56] START fusion_latent128
+[20:07:21] PASS  fusion_latent128  out=data/processed/tiger_rqvae_ablation/fusion_latent128
+grid done 2026-09-09T12:07:21Z  elapsed=535s
+GRID_FINISHED

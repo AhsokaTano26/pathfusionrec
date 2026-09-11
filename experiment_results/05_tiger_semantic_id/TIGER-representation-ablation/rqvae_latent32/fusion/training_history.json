@@ -1,0 +1,602 @@
+[
+  {
+    "epoch": 1,
+    "loss": 2.3527885095940695,
+    "semantic_reconstruction_loss": 0.9305800588594543,
+    "behavior_reconstruction_loss": 0.8685098985830942
+  },
+  {
+    "epoch": 2,
+    "loss": 2.117259247435464,
+    "semantic_reconstruction_loss": 0.8387351814243529,
+    "behavior_reconstruction_loss": 0.7871141011516253
+  },
+  {
+    "epoch": 3,
+    "loss": 2.0884339213371277,
+    "semantic_reconstruction_loss": 0.7913243994116783,
+    "behavior_reconstruction_loss": 0.777473202182187
+  },
+  {
+    "epoch": 4,
+    "loss": 2.041251190834575,
+    "semantic_reconstruction_loss": 0.766666410697831,
+    "behavior_reconstruction_loss": 0.7706971706615554
+  },
+  {
+    "epoch": 5,
+    "loss": 2.025000438094139,
+    "semantic_reconstruction_loss": 0.7502159343825446,
+    "behavior_reconstruction_loss": 0.7672937338550886
+  },
+  {
+    "epoch": 6,
+    "loss": 2.03306273288197,
+    "semantic_reconstruction_loss": 0.7360467472010188,
+    "behavior_reconstruction_loss": 0.7661049001746707
+  },
+  {
+    "epoch": 7,
+    "loss": 2.043076198962,
+    "semantic_reconstruction_loss": 0.7223587557673454,
+    "behavior_reconstruction_loss": 0.7653485122654173
+  },
+  {
+    "epoch": 8,
+    "loss": 2.058280656735102,
+    "semantic_reconstruction_loss": 0.7115597195095487,
+    "behavior_reconstruction_loss": 0.7640682864520285
+  },
+  {
+    "epoch": 9,
+    "loss": 2.0541993512047663,
+    "semantic_reconstruction_loss": 0.7028433978557587,
+    "behavior_reconstruction_loss": 0.7636283967230055
+  },
+  {
+    "epoch": 10,
+    "loss": 2.051860077513589,
+    "semantic_reconstruction_loss": 0.6946646918853124,
+    "behavior_reconstruction_loss": 0.7625334486365318
+  },
+  {
+    "epoch": 11,
+    "loss": 2.053582110338741,
+    "semantic_reconstruction_loss": 0.6894330407182375,
+    "behavior_reconstruction_loss": 0.7618025110827552
+  },
+  {
+    "epoch": 12,
+    "loss": 2.0538370509942374,
+    "semantic_reconstruction_loss": 0.6837277395857705,
+    "behavior_reconstruction_loss": 0.7605625167489052
+  },
+  {
+    "epoch": 13,
+    "loss": 2.050191664033466,
+    "semantic_reconstruction_loss": 0.6786423664953973,
+    "behavior_reconstruction_loss": 0.7603854429390695
+  },
+  {
+    "epoch": 14,
+    "loss": 2.048989348941379,
+    "semantic_reconstruction_loss": 0.674402703013685,
+    "behavior_reconstruction_loss": 0.7590386155578825
+  },
+  {
+    "epoch": 15,
+    "loss": 2.052011946837107,
+    "semantic_reconstruction_loss": 0.6708076629373763,
+    "behavior_reconstruction_loss": 0.7585010040137503
+  },
+  {
+    "epoch": 16,
+    "loss": 2.0551269749800363,
+    "semantic_reconstruction_loss": 0.6676089954045084,
+    "behavior_reconstruction_loss": 0.7579906466934416
+  },
+  {
+    "epoch": 17,
+    "loss": 2.0566479596826763,
+    "semantic_reconstruction_loss": 0.6643604768647088,
+    "behavior_reconstruction_loss": 0.7577211244238747
+  },
+  {
+    "epoch": 18,
+    "loss": 2.062955872880088,
+    "semantic_reconstruction_loss": 0.6615439562333955,
+    "behavior_reconstruction_loss": 0.7568958707981639
+  },
+  {
+    "epoch": 19,
+    "loss": 2.063152505291833,
+    "semantic_reconstruction_loss": 0.6579498218165504,
+    "behavior_reconstruction_loss": 0.756885881225268
+  },
+  {
+    "epoch": 20,
+    "loss": 2.0677966243690915,
+    "semantic_reconstruction_loss": 0.655540713833438,
+    "behavior_reconstruction_loss": 0.7562809247109625
+  },
+  {
+    "epoch": 21,
+    "loss": 2.0717528992229037,
+    "semantic_reconstruction_loss": 0.6522679262691073,
+    "behavior_reconstruction_loss": 0.7557892956667476
+  },
+  {
+    "epoch": 22,
+    "loss": 2.0763482832246356,
+    "semantic_reconstruction_loss": 0.6501483031445079,
+    "behavior_reconstruction_loss": 0.7554120926393403
+  },
+  {
+    "epoch": 23,
+    "loss": 2.078146027194129,
+    "semantic_reconstruction_loss": 0.6474003460672166,
+    "behavior_reconstruction_loss": 0.7554380579127206
+  },
+  {
+    "epoch": 24,
+    "loss": 2.0821366045210095,
+    "semantic_reconstruction_loss": 0.6452995679444737,
+    "behavior_reconstruction_loss": 0.7552280632985963
+  },
+  {
+    "epoch": 25,
+    "loss": 2.0870875418186188,
+    "semantic_reconstruction_loss": 0.642682703004943,
+    "behavior_reconstruction_loss": 0.7545729147063361
+  },
+  {
+    "epoch": 26,
+    "loss": 2.0883662402629852,
+    "semantic_reconstruction_loss": 0.6405836542447408,
+    "behavior_reconstruction_loss": 0.7540095970034599
+  },
+  {
+    "epoch": 27,
+    "loss": 2.0911397337913513,
+    "semantic_reconstruction_loss": 0.6384609879718887,
+    "behavior_reconstruction_loss": 0.754206060535378
+  },
+  {
+    "epoch": 28,
+    "loss": 2.091867725054423,
+    "semantic_reconstruction_loss": 0.637111694448524,
+    "behavior_reconstruction_loss": 0.753560044699245
+  },
+  {
+    "epoch": 29,
+    "loss": 2.094061510430442,
+    "semantic_reconstruction_loss": 0.6350022868977653,
+    "behavior_reconstruction_loss": 0.7529514821039306
+  },
+  {
+    "epoch": 30,
+    "loss": 2.093631876839532,
+    "semantic_reconstruction_loss": 0.6334763707386123,
+    "behavior_reconstruction_loss": 0.7525540416439375
+  },
+  {
+    "epoch": 31,
+    "loss": 2.097087068690194,
+    "semantic_reconstruction_loss": 0.6321970423062643,
+    "behavior_reconstruction_loss": 0.7527055864532789
+  },
+  {
+    "epoch": 32,
+    "loss": 2.0974014633231692,
+    "semantic_reconstruction_loss": 0.6305535692307684,
+    "behavior_reconstruction_loss": 0.7524633150961664
+  },
+  {
+    "epoch": 33,
+    "loss": 2.0996071332030826,
+    "semantic_reconstruction_loss": 0.6292521605889002,
+    "behavior_reconstruction_loss": 0.751989452375306
+  },
+  {
+    "epoch": 34,
+    "loss": 2.09789569179217,
+    "semantic_reconstruction_loss": 0.6276267286803987,
+    "behavior_reconstruction_loss": 0.7519755793942345
+  },
+  {
+    "epoch": 35,
+    "loss": 2.10175069504314,
+    "semantic_reconstruction_loss": 0.6267108908957906,
+    "behavior_reconstruction_loss": 0.7515957280993462
+  },
+  {
+    "epoch": 36,
+    "loss": 2.1021696031093597,
+    "semantic_reconstruction_loss": 0.6257068440318108,
+    "behavior_reconstruction_loss": 0.7513055553038915
+  },
+  {
+    "epoch": 37,
+    "loss": 2.10117037097613,
+    "semantic_reconstruction_loss": 0.6241946245233218,
+    "behavior_reconstruction_loss": 0.7508781063887808
+  },
+  {
+    "epoch": 38,
+    "loss": 2.1028917531172433,
+    "semantic_reconstruction_loss": 0.6229701191186905,
+    "behavior_reconstruction_loss": 0.7501828885740705
+  },
+  {
+    "epoch": 39,
+    "loss": 2.102088818947474,
+    "semantic_reconstruction_loss": 0.6220658289061652,
+    "behavior_reconstruction_loss": 0.7503608440359434
+  },
+  {
+    "epoch": 40,
+    "loss": 2.1037099096510143,
+    "semantic_reconstruction_loss": 0.6212426415748067,
+    "behavior_reconstruction_loss": 0.7504012849595811
+  },
+  {
+    "epoch": 41,
+    "loss": 2.1042133536603718,
+    "semantic_reconstruction_loss": 0.6201000991794798,
+    "behavior_reconstruction_loss": 0.7502960198455386
+  },
+  {
+    "epoch": 42,
+    "loss": 2.105166342523363,
+    "semantic_reconstruction_loss": 0.6187683782643743,
+    "behavior_reconstruction_loss": 0.7500458020302985
+  },
+  {
+    "epoch": 43,
+    "loss": 2.106045971314112,
+    "semantic_reconstruction_loss": 0.6179718689786063,
+    "behavior_reconstruction_loss": 0.7499712763561143
+  },
+  {
+    "epoch": 44,
+    "loss": 2.1058863169617124,
+    "semantic_reconstruction_loss": 0.6173005286190245,
+    "behavior_reconstruction_loss": 0.7490668545166651
+  },
+  {
+    "epoch": 45,
+    "loss": 2.106803238391876,
+    "semantic_reconstruction_loss": 0.6160683168305291,
+    "behavior_reconstruction_loss": 0.749696359038353
+  },
+  {
+    "epoch": 46,
+    "loss": 2.107921388414171,
+    "semantic_reconstruction_loss": 0.6154240030381415,
+    "behavior_reconstruction_loss": 0.7490028896265559
+  },
+  {
+    "epoch": 47,
+    "loss": 2.1054769489500256,
+    "semantic_reconstruction_loss": 0.6143784580959214,
+    "behavior_reconstruction_loss": 0.7488884453972181
+  },
+  {
+    "epoch": 48,
+    "loss": 2.109267705016666,
+    "semantic_reconstruction_loss": 0.6137408788005511,
+    "behavior_reconstruction_loss": 0.7486110867725478
+  },
+  {
+    "epoch": 49,
+    "loss": 2.1070479651292167,
+    "semantic_reconstruction_loss": 0.6130499392747879,
+    "behavior_reconstruction_loss": 0.7486953230367767
+  },
+  {
+    "epoch": 50,
+    "loss": 2.108940581480662,
+    "semantic_reconstruction_loss": 0.6120614078309801,
+    "behavior_reconstruction_loss": 0.7483178600668907
+  },
+  {
+    "epoch": 51,
+    "loss": 2.1097432474295297,
+    "semantic_reconstruction_loss": 0.6115976572036743,
+    "behavior_reconstruction_loss": 0.7483916771080759
+  },
+  {
+    "epoch": 52,
+    "loss": 2.106787039173974,
+    "semantic_reconstruction_loss": 0.6106772613194253,
+    "behavior_reconstruction_loss": 0.7480618523226844
+  },
+  {
+    "epoch": 53,
+    "loss": 2.108640127711826,
+    "semantic_reconstruction_loss": 0.609606405099233,
+    "behavior_reconstruction_loss": 0.748089789516396
+  },
+  {
+    "epoch": 54,
+    "loss": 2.1111354562971325,
+    "semantic_reconstruction_loss": 0.6096707209944725,
+    "behavior_reconstruction_loss": 0.7475878844658533
+  },
+  {
+    "epoch": 55,
+    "loss": 2.1095870468351574,
+    "semantic_reconstruction_loss": 0.6086262298954858,
+    "behavior_reconstruction_loss": 0.7477128439479404
+  },
+  {
+    "epoch": 56,
+    "loss": 2.1102422972520194,
+    "semantic_reconstruction_loss": 0.607504172457589,
+    "behavior_reconstruction_loss": 0.747260619368818
+  },
+  {
+    "epoch": 57,
+    "loss": 2.1097046501106687,
+    "semantic_reconstruction_loss": 0.6071667066878743,
+    "behavior_reconstruction_loss": 0.7473444731699096
+  },
+  {
+    "epoch": 58,
+    "loss": 2.1106242636839547,
+    "semantic_reconstruction_loss": 0.606718381245931,
+    "behavior_reconstruction_loss": 0.7473731281028854
+  },
+  {
+    "epoch": 59,
+    "loss": 2.113490025202433,
+    "semantic_reconstruction_loss": 0.606009465124872,
+    "behavior_reconstruction_loss": 0.7471863809559081
+  },
+  {
+    "epoch": 60,
+    "loss": 2.1121255689197116,
+    "semantic_reconstruction_loss": 0.6056258628765742,
+    "behavior_reconstruction_loss": 0.74715256690979
+  },
+  {
+    "epoch": 61,
+    "loss": 2.114182558324602,
+    "semantic_reconstruction_loss": 0.605273081196679,
+    "behavior_reconstruction_loss": 0.7472072947356436
+  },
+  {
+    "epoch": 62,
+    "loss": 2.1158488955762653,
+    "semantic_reconstruction_loss": 0.6043519071406789,
+    "behavior_reconstruction_loss": 0.7466369759705331
+  },
+  {
+    "epoch": 63,
+    "loss": 2.1132298012574515,
+    "semantic_reconstruction_loss": 0.6033777462111579,
+    "behavior_reconstruction_loss": 0.7467319551441405
+  },
+  {
+    "epoch": 64,
+    "loss": 2.1148737933900623,
+    "semantic_reconstruction_loss": 0.6030477161208788,
+    "behavior_reconstruction_loss": 0.7464149279726876
+  },
+  {
+    "epoch": 65,
+    "loss": 2.1155452165338726,
+    "semantic_reconstruction_loss": 0.6026199923621284,
+    "behavior_reconstruction_loss": 0.7463602282934718
+  },
+  {
+    "epoch": 66,
+    "loss": 2.11636702881919,
+    "semantic_reconstruction_loss": 0.6022659912705421,
+    "behavior_reconstruction_loss": 0.746601305074162
+  },
+  {
+    "epoch": 67,
+    "loss": 2.1163664393954806,
+    "semantic_reconstruction_loss": 0.6014897773663203,
+    "behavior_reconstruction_loss": 0.7461084524790446
+  },
+  {
+    "epoch": 68,
+    "loss": 2.116963313685523,
+    "semantic_reconstruction_loss": 0.6008869210879008,
+    "behavior_reconstruction_loss": 0.746380429300997
+  },
+  {
+    "epoch": 69,
+    "loss": 2.117899196015464,
+    "semantic_reconstruction_loss": 0.600422831873099,
+    "behavior_reconstruction_loss": 0.7458569771713681
+  },
+  {
+    "epoch": 70,
+    "loss": 2.1177386773957148,
+    "semantic_reconstruction_loss": 0.5996804634730021,
+    "behavior_reconstruction_loss": 0.74580550690492
+  },
+  {
+    "epoch": 71,
+    "loss": 2.117472125424279,
+    "semantic_reconstruction_loss": 0.599194322195318,
+    "behavior_reconstruction_loss": 0.7460817711220847
+  },
+  {
+    "epoch": 72,
+    "loss": 2.1171029011408486,
+    "semantic_reconstruction_loss": 0.5989153368605508,
+    "behavior_reconstruction_loss": 0.746068365044064
+  },
+  {
+    "epoch": 73,
+    "loss": 2.1170462800396814,
+    "semantic_reconstruction_loss": 0.5981423093212975,
+    "behavior_reconstruction_loss": 0.7455383191506068
+  },
+  {
+    "epoch": 74,
+    "loss": 2.1178775231043496,
+    "semantic_reconstruction_loss": 0.5976518077982796,
+    "behavior_reconstruction_loss": 0.7454701653785176
+  },
+  {
+    "epoch": 75,
+    "loss": 2.1184695528613195,
+    "semantic_reconstruction_loss": 0.5975337160958184,
+    "behavior_reconstruction_loss": 0.7455722499224875
+  },
+  {
+    "epoch": 76,
+    "loss": 2.1199245949586234,
+    "semantic_reconstruction_loss": 0.59704014327791,
+    "behavior_reconstruction_loss": 0.7456860732701089
+  },
+  {
+    "epoch": 77,
+    "loss": 2.1207520498169794,
+    "semantic_reconstruction_loss": 0.5968758770161204,
+    "behavior_reconstruction_loss": 0.745527027381791
+  },
+  {
+    "epoch": 78,
+    "loss": 2.120580623547236,
+    "semantic_reconstruction_loss": 0.5962172076106071,
+    "behavior_reconstruction_loss": 0.7456237789657381
+  },
+  {
+    "epoch": 79,
+    "loss": 2.1191753811306424,
+    "semantic_reconstruction_loss": 0.5958335002263387,
+    "behavior_reconstruction_loss": 0.7449876500500573
+  },
+  {
+    "epoch": 80,
+    "loss": 2.1220715939998627,
+    "semantic_reconstruction_loss": 0.5955397817823622,
+    "behavior_reconstruction_loss": 0.7453385401103232
+  },
+  {
+    "epoch": 81,
+    "loss": 2.1207325292958155,
+    "semantic_reconstruction_loss": 0.5950552341010835,
+    "behavior_reconstruction_loss": 0.7446074667904112
+  },
+  {
+    "epoch": 82,
+    "loss": 2.1219449407524533,
+    "semantic_reconstruction_loss": 0.5946123773852984,
+    "behavior_reconstruction_loss": 0.7450730345315404
+  },
+  {
+    "epoch": 83,
+    "loss": 2.1235775351524353,
+    "semantic_reconstruction_loss": 0.5944552049040794,
+    "behavior_reconstruction_loss": 0.7447370108630922
+  },
+  {
+    "epoch": 84,
+    "loss": 2.123986177974277,
+    "semantic_reconstruction_loss": 0.5941287900010744,
+    "behavior_reconstruction_loss": 0.7448952496051788
+  },
+  {
+    "epoch": 85,
+    "loss": 2.1227601799699993,
+    "semantic_reconstruction_loss": 0.593311903377374,
+    "behavior_reconstruction_loss": 0.7443256858322356
+  },
+  {
+    "epoch": 86,
+    "loss": 2.1232825020949044,
+    "semantic_reconstruction_loss": 0.593312445614073,
+    "behavior_reconstruction_loss": 0.7441204852528043
+  },
+  {
+    "epoch": 87,
+    "loss": 2.1264416641659207,
+    "semantic_reconstruction_loss": 0.5932382734285461,
+    "behavior_reconstruction_loss": 0.744586668908596
+  },
+  {
+    "epoch": 88,
+    "loss": 2.124323699209425,
+    "semantic_reconstruction_loss": 0.592642562256919,
+    "behavior_reconstruction_loss": 0.744416275786029
+  },
+  {
+    "epoch": 89,
+    "loss": 2.129187603791555,
+    "semantic_reconstruction_loss": 0.5920704926053683,
+    "behavior_reconstruction_loss": 0.7445738497707579
+  },
+  {
+    "epoch": 90,
+    "loss": 2.1263317631350622,
+    "semantic_reconstruction_loss": 0.5919619417852826,
+    "behavior_reconstruction_loss": 0.7445697180098958
+  },
+  {
+    "epoch": 91,
+    "loss": 2.127776083019045,
+    "semantic_reconstruction_loss": 0.5913162794378068,
+    "behavior_reconstruction_loss": 0.7440624452299542
+  },
+  {
+    "epoch": 92,
+    "loss": 2.127762211693658,
+    "semantic_reconstruction_loss": 0.5913976488841904,
+    "behavior_reconstruction_loss": 0.7436251582370864
+  },
+  {
+    "epoch": 93,
+    "loss": 2.1290884613990784,
+    "semantic_reconstruction_loss": 0.591029210223092,
+    "behavior_reconstruction_loss": 0.7442244696948264
+  },
+  {
+    "epoch": 94,
+    "loss": 2.1294866469171314,
+    "semantic_reconstruction_loss": 0.5909917967187034,
+    "behavior_reconstruction_loss": 0.7434307601716783
+  },
+  {
+    "epoch": 95,
+    "loss": 2.129842976729075,
+    "semantic_reconstruction_loss": 0.5906021379762225,
+    "behavior_reconstruction_loss": 0.743475831217236
+  },
+  {
+    "epoch": 96,
+    "loss": 2.1282553374767303,
+    "semantic_reconstruction_loss": 0.5901118293404579,
+    "behavior_reconstruction_loss": 0.7436669601334466
+  },
+  {
+    "epoch": 97,
+    "loss": 2.1306855612330966,
+    "semantic_reconstruction_loss": 0.5901633269257016,
+    "behavior_reconstruction_loss": 0.7429211909572283
+  },
+  {
+    "epoch": 98,
+    "loss": 2.1301505267620087,
+    "semantic_reconstruction_loss": 0.5899609964754846,
+    "behavior_reconstruction_loss": 0.7431904806031121
+  },
+  {
+    "epoch": 99,
+    "loss": 2.132108357217577,
+    "semantic_reconstruction_loss": 0.5893858489063051,
+    "behavior_reconstruction_loss": 0.743331572247876
+  },
+  {
+    "epoch": 100,
+    "loss": 2.131427397330602,
+    "semantic_reconstruction_loss": 0.5889411105049981,
+    "behavior_reconstruction_loss": 0.7427267614338133
+  }
+]

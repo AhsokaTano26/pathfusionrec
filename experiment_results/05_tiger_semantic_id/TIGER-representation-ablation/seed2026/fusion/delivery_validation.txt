@@ -1,0 +1,4 @@
+RESULT VALIDATION: PASS
+best_epoch: 80
+best_validation_ndcg@10: 0.023219356972954405
+metric_sections: all cold_start_target long_tail_target sparse_user

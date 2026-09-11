@@ -1,0 +1,24 @@
+{
+  "batch_size": 256,
+  "codebook_sizes": [
+    4,
+    16,
+    256
+  ],
+  "commitment_weight": 0.25,
+  "device": "cuda",
+  "epochs": 100,
+  "latent_dim": 32,
+  "lr": 0.001,
+  "seed": 2026,
+  "training_item_count": 18284,
+  "vector_manifest": {
+    "dimension": 128,
+    "dtype": "float32",
+    "num_items": 18357,
+    "representation": "pfr_interaction_embedding",
+    "source_checkpoint": "best_model.pth",
+    "source_checkpoint_sha256": "1ab1401b78da6a5d8ff8bb332410ea6ea7fd1e334e685befe6be622cd1dc5bd3",
+    "source_tensor": "interaction_embedding.weight"
+  }
+}
