@@ -1,0 +1,21 @@
+{
+  "batch_size": 256,
+  "d_ff": 1024,
+  "d_kv": 64,
+  "d_model": 128,
+  "device": "cuda",
+  "dropout": 0.1,
+  "epochs": 200,
+  "eval_batch_size": 256,
+  "eval_interval": 20,
+  "lr": 0.001,
+  "max_history_length": 20,
+  "num_beams": 50,
+  "num_heads": 6,
+  "num_layers": 4,
+  "num_workers": 8,
+  "prefetch_factor": 4,
+  "seed": 2026,
+  "user_bucket_count": 2000,
+  "weight_decay": 0.0001
+}

@@ -82,8 +82,10 @@ validation、三级码本均被使用、死码少、训练商品重建损失无�
 - 输入表示对 TIGER 生成式检索的影响显著：平衡融合在 NDCG/Recall@10、@20 上同时取得最好结果。
 - `cold_start_target` 在三组上仍接近 0（fusion 仅在 @50 上非零），`long_tail_target` 绝对值仍在 1e-4 量级；
   融合输入改善的是常规与稀疏用户样本，**没有**修复生成式路径对冷启动/长尾的固有弱点。
-- behavior 组 best epoch = 100 恰好触顶，存在欠训可能；`seed2026/behavior-200ep/` 是该问题的诊断性补跑，
-  **不进入本消融正式表**。
+- behavior 组 best epoch = 100 恰好触顶，欠训已由 `seed2026/behavior-200ep/` 诊断性补跑**确认**：
+  200 epoch 版在 epoch 120 达峰值（验证 NDCG@10 0.020067，比 100 epoch 版高 2.83%）后逐轮下降，
+  即 100 epoch 确实截断在上升段，合理预算约 120 epoch。但测试集只提高 0.29%（NDCG@10 0.013597 → 0.013637），
+  **不改变本消融的相对结论**。该补跑不进入正式表，详见 `seed2026/summary/analysis.md` 第 7 节。
 - 目前只有单个 seed（2026），不能进入最终多 seed 主结果表。ActionPiece/SASRec 历史结果不满足统一候选集
   与完整评估语义，不能纳入本消融的柱状比较。
 
@@ -91,8 +93,10 @@ validation、三级码本均被使用、死码少、训练商品重建损失无�
 
 - `seed2026/{semantic,behavior,fusion}/`：`metrics.json`、`config.json`、`training_history.csv`、`run.log`、
   `command.txt`、`environment.txt`、`git_commit.txt`、`delivery_validation.txt`、`best_model.pth`、`sha256sums.txt`。
-- `seed2026/summary/`：`ablation_results.csv`、`ablation_subsets.csv`、三对 PNG/SVG 图、`analysis.md`。
-- `seed2026/run_logs/`：驱动、watch、RQ-VAE 网格、测试等全部编排日志与所用脚本。
+- `seed2026/behavior-200ep/`：轮数预算诊断性补跑（200 epoch），产物同三组正式运行；**非正式表成员**。
+- `seed2026/summary/`：`ablation_results.csv`、`ablation_subsets.csv`、`behavior_epoch_budget.csv`、
+  三对 PNG/SVG 图、`analysis.md`、`sha256sums.txt`。
+- `seed2026/run_logs/`：驱动、watch、RQ-VAE 网格、测试、behavior-200ep 等全部编排日志与所用脚本。
 - `rqvae_latent32/<rep>/`：三组实际使用的 RQ-VAE 的 `config.json`、`codebook_diagnostics.json`、
   `standardization.json`、`training_history.json`、`delivery_validation.txt`。
 - `rqvae_latent_capacity.csv`：latent 容量筛选原始记录。
