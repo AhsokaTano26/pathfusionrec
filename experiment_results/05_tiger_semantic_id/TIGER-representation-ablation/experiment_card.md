@@ -100,3 +100,6 @@ validation、三级码本均被使用、死码少、训练商品重建损失无�
 - `rqvae_latent32/<rep>/`：三组实际使用的 RQ-VAE 的 `config.json`、`codebook_diagnostics.json`、
   `standardization.json`、`training_history.json`、`delivery_validation.txt`。
 - `rqvae_latent_capacity.csv`：latent 容量筛选原始记录。
+- `training_history.csv`、`run.log`、`command.txt`、`environment.txt`、`git_commit.txt`、`sha256sums.txt`
+  由 `scripts/archive_experiment_run.py` 统一生成（有配套单测）。该脚本已对四个 run 重跑验证：
+  六个交付文件与本文档所述版本逐字节一致。
